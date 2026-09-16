@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="VEYRA staff settings."
+    >
+
+    <title>VEYRA — Settings</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+       
+
+        <aside class="sidebar">
+
+            <a href="staff-dashboard.html" class="logo">
+                <span class="logo-icon">V</span>
+                <span class="logo-name">VEYRA</span>
+            </a>
+
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="staff-dashboard.html"
+                    class="nav-item"
+                >
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+
+                <a
+                    href="attendance.html"
+                    class="nav-item"
+                >
+                    <span>◷</span>
+                    Attendance
+                </a>
+
+
+                <a
+                    href="history.html"
+                    class="nav-item"
+                >
+                    <span>▣</span>
+                    History
+                </a>
+
+
+                <a
+                    href="settings.html"
+                    class="nav-item active"
+                >
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a
+                    href="login.html"
+                    class="logout-link"
+                >
+                    <span>↪</span>
+                    Log Out
+                </a>
+
+            </div>
+
+        </aside>
+
+
+
+       
+
+        <main class="dashboard-main">
+
+            <!-- HEADER -->
+
+            <header class="dashboard-header">
+
+                <div>
+
+                    <p class="welcome-label">
+                        SETTINGS
+                    </p>
+
+                    <h1>
+                        Account Settings
+                    </h1>
+
+                    <p class="header-subtitle">
+                        Manage your profile, security and preferences.
+                    </p>
+
+                </div>
+
+
+                <div class="header-date">
+
+                    <span>
+                        TODAY
+                    </span>
+
+                    <strong id="settingsCurrentDate">
+                        Loading...
+                    </strong>
+
+                </div>
+
+            </header>
+
+
+
+           
+
+            <section class="settings-section">
+
+                <div class="settings-section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            PROFILE
+                        </p>
+
+                        <h2>
+                            Personal Information
+                        </h2>
+
+                        <p>
+                            Information provided by your administrator.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-card">
+
+                    <div class="settings-grid">
+
+                        <!-- FULL NAME -->
+
+                        <div class="setting-item">
+
+                            <label>
+                                Full Name
+                            </label>
+
+                            <div
+                                class="setting-value"
+                                id="staffProfileName"
+                            >
+                                Loading...
+                            </div>
+
+                        </div>
+
+
+                        <!-- STAFF ID -->
+
+                        <div class="setting-item">
+
+                            <label>
+                                Staff ID
+                            </label>
+
+                            <div
+                                class="setting-value"
+                                id="staffProfileId"
+                            >
+                                Loading...
+                            </div>
+
+                        </div>
+
+
+                        <!-- DEPARTMENT -->
+
+                        <div class="setting-item">
+
+                            <label>
+                                Department
+                            </label>
+
+                            <div
+                                class="setting-value"
+                                id="staffProfileDepartment"
+                            >
+                                Loading...
+                            </div>
+
+                        </div>
+
+
+                        <!-- ROLE -->
+
+                        <div class="setting-item">
+
+                            <label>
+                                Role
+                            </label>
+
+                            <div
+                                class="setting-value"
+                                id="staffProfileRole"
+                            >
+                                Loading...
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="settings-note">
+                        Your profile information can only be changed by an administrator.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+          
+
+            <section class="settings-section">
+
+                <div class="settings-section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            SECURITY
+                        </p>
+
+                        <h2>
+                            Change Password
+                        </h2>
+
+                        <p>
+                            Update your password to keep your account secure.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-card">
+
+                    <form id="staffPasswordForm">
+
+                        <!-- CURRENT PASSWORD -->
+
+                        <div class="admin-form-group">
+
+                            <label for="currentStaffPassword">
+                                Current Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="currentStaffPassword"
+                                placeholder="Enter your current password"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <div class="admin-form-group">
+
+                            <label for="newStaffPassword">
+                                New Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="newStaffPassword"
+                                placeholder="Enter your new password"
+                                required
+                            >
+
+                        </div>
+
+
+                        
+
+                        <div class="admin-form-group">
+
+                            <label for="confirmStaffPassword">
+                                Confirm New Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="confirmStaffPassword"
+                                placeholder="Confirm your new password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="staff-form-footer">
+
+                            <button
+                                type="submit"
+                                class="admin-primary-button"
+                            >
+                                Change Password
+                            </button>
+
+                        </div>
+
+
+                        <p
+                            id="staffPasswordMessage"
+                            class="settings-message"
+                        ></p>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+
+
+           
+            <section class="settings-section">
+
+                <div class="settings-section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            APPEARANCE
+                        </p>
+
+                        <h2>
+                            Theme
+                        </h2>
+
+                        <p>
+                            Choose how VEYRA looks when you use it.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-card">
+
+                    <div class="theme-options">
+
+
+                        <!-- LIGHT -->
+
+                        <label class="theme-option">
+
+                            <input
+                                type="radio"
+                                name="staffTheme"
+                                value="light"
+                                id="staffThemeLight"
+                            >
+
+                            <span class="theme-option-content">
+
+                                <strong>
+                                    Light
+                                </strong>
+
+                                <small>
+                                    Use the bright VEYRA interface.
+                                </small>
+
+                            </span>
+
+                        </label>
+
+
+
+                        <!-- DARK -->
+
+                        <label class="theme-option">
+
+                            <input
+                                type="radio"
+                                name="staffTheme"
+                                value="dark"
+                                id="staffThemeDark"
+                            >
+
+                            <span class="theme-option-content">
+
+                                <strong>
+                                    Dark
+                                </strong>
+
+                                <small>
+                                    Use a darker interface.
+                                </small>
+
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                    <p
+                        id="staffThemeMessage"
+                        class="settings-message"
+                    ></p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

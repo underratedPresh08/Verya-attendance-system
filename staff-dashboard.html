@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="VEYRA staff attendance dashboard."
+    >
+
+    <title>VEYRA — Staff Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+
+    <div class="dashboard-layout">
+
+
+       
+        <aside class="sidebar">
+
+            <a href="index.html" class="logo">
+
+                <span class="logo-icon">
+                    V
+                </span>
+
+                <span class="logo-name">
+                    VEYRA
+                </span>
+
+            </a>
+
+
+            <nav class="sidebar-nav">
+
+                <a href="#" class="nav-item active">
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>◷</span>
+                    Attendance
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>▣</span>
+                    History
+                </a>
+
+                <a href="setting.html" class="nav-item">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a href="login.html" class="logout-link">
+                    <span>↪</span>
+                    Log Out
+                </a>
+
+            </div>
+
+        </aside>
+
+
+
+        <main class="dashboard-main">
+
+
+            
+            <header class="dashboard-header">
+
+                <div>
+
+                    <p class="welcome-label">
+                        STAFF DASHBOARD
+                    </p>
+
+                    <h1>
+                        Good morning, Alex 👋
+                    </h1>
+
+                    <p class="header-subtitle">
+                        Here's your attendance overview for today.
+                    </p>
+
+                </div>
+
+
+                <div class="header-date">
+
+                    <span>
+                        TODAY
+                    </span>
+
+                    <strong>
+                        September 15, 2026
+                    </strong>
+
+                </div>
+
+            </header>
+
+
+            
+            <section class="attendance-card">
+
+                <div class="attendance-info">
+
+                    <span class="status-label">
+                        TODAY'S STATUS
+                    </span>
+
+                    <h2>
+                        You're currently
+                        <span>Not Clocked In</span>
+                    </h2>
+
+                    <p>
+                        Start your workday by clocking in.
+                        VEYRA will keep track of your working hours.
+                    </p>
+
+                </div>
+
+
+                <div class="clock-action">
+
+                    <div class="current-time" id="currentTime">
+                        08:00 AM
+                    </div>
+
+                    <div class="clock-buttons">
+
+    <button
+        type="button"
+        id="clockInButton"
+        class="clock-button"
+    >
+        Clock In
+    </button>
+
+    <button
+        type="button"
+        id="clockOutButton"
+        class="clock-button clock-out-button"
+        disabled
+    >
+        Clock Out
+    </button>
+
+</div>
+
+                    <p id="clockMessage">
+                        You have not started today's shift.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <section class="overview-section">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <p class="section-label">
+                            OVERVIEW
+                        </p>
+
+                        <h2>
+                            Your attendance at a glance
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+
+                    <article class="stat-card">
+
+                        <span class="stat-icon">
+                            ◷
+                        </span>
+
+                        <div>
+
+                            <p>
+                                Hours Worked
+                            </p>
+
+                            <strong id="hoursWorked">
+                                0h 00m
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <span class="stat-icon">
+                            ✓
+                        </span>
+
+                        <div>
+
+                            <p>
+                                Days Present
+                            </p>
+
+                            <strong>
+                                18
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <span class="stat-icon">
+                            ⚠
+                        </span>
+
+                        <div>
+
+                            <p>
+                                Late Days
+                            </p>
+
+                            <strong>
+                                2
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <span class="stat-icon">
+                            ▣
+                        </span>
+
+                        <div>
+
+                            <p>
+                                Attendance Rate
+                            </p>
+
+                            <strong>
+                                90%
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+
+            <section class="progress-card">
+
+                <div class="progress-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            TODAY'S PROGRESS
+                        </p>
+
+                        <h2>
+                            Working hours
+                        </h2>
+
+                    </div>
+
+                    <strong id="workProgressText">
+                        0h 00m / 8h
+                    </strong>
+
+                </div>
+
+
+                <div class="progress-track">
+
+                    <div
+                        class="progress-fill"
+                        id="workProgress"
+                    ></div>
+
+                </div>
+
+
+                <div class="progress-footer">
+
+                    <span>
+                        Minimum required working time
+                    </span>
+
+                    <strong>
+                        8 hours
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <section class="activity-section">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <p class="section-label">
+                            RECENT ACTIVITY
+                        </p>
+
+                        <h2>
+                            Attendance history
+                        </h2>
+
+                    </div>
+
+                    <a href="#" class="view-all">
+                        View all →
+                    </a>
+
+                </div>
+
+
+                <div class="activity-table">
+
+                    <div class="table-row table-heading">
+
+                        <span>
+                            Date
+                        </span>
+
+                        <span>
+                            Clock In
+                        </span>
+
+                        <span>
+                            Clock Out
+                        </span>
+
+                        <span>
+                            Hours
+                        </span>
+
+                        <span>
+                            Status
+                        </span>
+
+                    </div>
+
+
+                    <div class="table-row">
+
+                        <span>
+                            Sep 14, 2026
+                        </span>
+
+                        <span>
+                            08:02 AM
+                        </span>
+
+                        <span>
+                            04:08 PM
+                        </span>
+
+                        <span>
+                            8h 06m
+                        </span>
+
+                        <span class="table-status present">
+                            Present
+                        </span>
+
+                    </div>
+
+
+                    <div class="table-row">
+
+                        <span>
+                            Sep 13, 2026
+                        </span>
+
+                        <span>
+                            08:15 AM
+                        </span>
+
+                        <span>
+                            04:20 PM
+                        </span>
+
+                        <span>
+                            8h 05m
+                        </span>
+
+                        <span class="table-status late">
+                            Late
+                        </span>
+
+                    </div>
+
+
+                    <div class="table-row">
+
+                        <span>
+                            Sep 12, 2026
+                        </span>
+
+                        <span>
+                            07:58 AM
+                        </span>
+
+                        <span>
+                            04:01 PM
+                        </span>
+
+                        <span>
+                            8h 03m
+                        </span>
+
+                        <span class="table-status present">
+                            Present
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

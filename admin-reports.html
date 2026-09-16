@@ -1,0 +1,185 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VEYRA — Reports</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+
+        <div class="admin-logo">
+            <div class="admin-logo-mark">V</div>
+            <span>VEYRA</span>
+        </div>
+
+        <nav class="admin-nav">
+
+            <a href="admin-dashboard.html" class="admin-nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="admin-attendance.html" class="admin-nav-item">
+                <span>◷</span>
+                Attendance
+            </a>
+
+            <a href="admin-staff.html" class="admin-nav-item">
+                <span>♙</span>
+                Staff
+            </a>
+
+            <a href="admin-reports.html" class="admin-nav-item active">
+                <span>▤</span>
+                Reports
+            </a>
+
+            <a href="admin-settings.html" class="admin-nav-item">
+                <span>⚙</span>
+                Settings
+            </a>
+
+        </nav>
+
+        <div class="admin-sidebar-bottom">
+            <a href="login.html" class="admin-nav-item admin-logout">
+                <span>↪</span>
+                Log Out
+            </a>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+        <!-- HEADER -->
+        <header class="admin-header">
+
+            <div>
+                <p class="admin-eyebrow">REPORTS</p>
+                <h1>Attendance Reports</h1>
+                <p class="admin-header-subtitle">
+                    Review attendance performance and staff records.
+                </p>
+            </div>
+
+            <div class="admin-date">
+                <strong id="reportsCurrentDate">Loading...</strong>
+            </div>
+
+        </header>
+
+
+        <!-- REPORT SUMMARY -->
+        <section class="report-summary-grid">
+
+            <div class="report-card">
+                <span class="report-card-label">Total Staff</span>
+                <strong id="reportTotalStaff">0</strong>
+                <p>Registered staff members</p>
+            </div>
+
+            <div class="report-card">
+                <span class="report-card-label">Attendance Records</span>
+                <strong id="reportTotalRecords">0</strong>
+                <p>Recorded attendance entries</p>
+            </div>
+
+            <div class="report-card">
+                <span class="report-card-label">Present Records</span>
+                <strong id="reportPresentRecords">0</strong>
+                <p>Completed or active attendance</p>
+            </div>
+
+            <div class="report-card">
+                <span class="report-card-label">Late Records</span>
+                <strong id="reportLateRecords">0</strong>
+                <p>Clock-ins after 8:00 AM</p>
+            </div>
+
+        </section>
+
+
+        <!-- REPORT TABLE -->
+        <section class="admin-section">
+
+            <div class="admin-section-header">
+
+                <div>
+                    <p class="admin-eyebrow">ATTENDANCE SUMMARY</p>
+                    <h2>Staff Attendance Overview</h2>
+                </div>
+
+            </div>
+
+
+            <div class="admin-table-wrapper">
+
+                <table class="admin-table">
+
+                    <thead>
+                        <tr>
+                            <th>Staff</th>
+                            <th>Staff ID</th>
+                            <th>Department</th>
+                            <th>Days Present</th>
+                            <th>Late Days</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="reportsTableBody">
+
+                        <tr>
+                            <td colspan="5" class="empty-table">
+                                No attendance data available yet.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMATION CARD -->
+        <section class="report-info-card">
+
+            <div class="report-info-icon">▤</div>
+
+            <div>
+                <h3>How this report works</h3>
+
+                <p>
+                    VEYRA generates these figures from staff accounts and
+                    attendance records stored by the system. As staff members
+                    clock in and out, the report updates automatically.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,355 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="VEYRA admin attendance records."
+    >
+
+    <title>VEYRA — Attendance</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+
+        <aside class="admin-sidebar">
+
+            <a href="index.html" class="admin-logo">
+
+                <span class="admin-logo-icon">
+                    V
+                </span>
+
+                <span class="admin-logo-name">
+                    VEYRA
+                </span>
+
+            </a>
+
+
+            <nav class="admin-nav">
+
+                <a
+                    href="admin-dashboard.html"
+                    class="admin-nav-item"
+                >
+                    <span class="nav-icon">⌂</span>
+                    Dashboard
+                </a>
+
+
+                <a
+                    href="admin-attendance.html"
+                    class="admin-nav-item active"
+                >
+                    <span class="nav-icon">◷</span>
+                    Attendance
+                </a>
+
+
+                <a
+                    href="admin-staff.html"
+                    class="admin-nav-item"
+                >
+                    <span class="nav-icon">♙</span>
+                    Staff
+                </a>
+
+
+                <a
+                    href="admin-reports.html"
+                    class="admin-nav-item"
+                >
+                    <span class="nav-icon">▤</span>
+                    Reports
+                </a>
+
+
+                <a
+                    href="admin-settings.html"
+                    class="admin-nav-item"
+                >
+                    <span class="nav-icon">⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+
+            <div class="admin-sidebar-bottom">
+
+                <a
+                    href="login.html"
+                    class="admin-logout"
+                >
+                    <span class="nav-icon">↪</span>
+                    Log Out
+                </a>
+
+            </div>
+
+        </aside>
+
+
+     
+
+        <main class="admin-main">
+
+
+          
+
+            <header class="admin-header">
+
+                <div>
+
+                    <p class="admin-eyebrow">
+                        ATTENDANCE
+                    </p>
+
+                    <h1>
+                        Attendance Records
+                    </h1>
+
+                    <p class="admin-header-description">
+                        View and monitor staff attendance activity.
+                    </p>
+
+                </div>
+
+
+                <div class="admin-date">
+
+                    <span>
+                        TODAY
+                    </span>
+
+                    <strong id="attendanceCurrentDate">
+                        Loading...
+                    </strong>
+
+                </div>
+
+            </header>
+
+
+
+            <section class="admin-stats">
+
+                <article class="admin-stat-card">
+
+                    <div class="stat-card-header">
+
+                        <span class="stat-label">
+                            TOTAL RECORDS
+                        </span>
+
+                        <span class="stat-icon">
+                            ▤
+                        </span>
+
+                    </div>
+
+                    <strong
+                        class="stat-number"
+                        id="attendanceTotalRecords"
+                    >
+                        0
+                    </strong>
+
+                    <p>
+                        Attendance records
+                    </p>
+
+                </article>
+
+
+                <article class="admin-stat-card">
+
+                    <div class="stat-card-header">
+
+                        <span class="stat-label">
+                            PRESENT
+                        </span>
+
+                        <span class="stat-icon">
+                            ✓
+                        </span>
+
+                    </div>
+
+                    <strong
+                        class="stat-number"
+                        id="attendancePresent"
+                    >
+                        0
+                    </strong>
+
+                    <p>
+                        Staff present today
+                    </p>
+
+                </article>
+
+
+                <article class="admin-stat-card">
+
+                    <div class="stat-card-header">
+
+                        <span class="stat-label">
+                            LATE
+                        </span>
+
+                        <span class="stat-icon">
+                            !
+                        </span>
+
+                    </div>
+
+                    <strong
+                        class="stat-number"
+                        id="attendanceLate"
+                    >
+                        0
+                    </strong>
+
+                    <p>
+                        Staff who arrived late
+                    </p>
+
+                </article>
+
+
+                <article class="admin-stat-card">
+
+                    <div class="stat-card-header">
+
+                        <span class="stat-label">
+                            COMPLETED
+                        </span>
+
+                        <span class="stat-icon">
+                            ✓
+                        </span>
+
+                    </div>
+
+                    <strong
+                        class="stat-number"
+                        id="attendanceCompleted"
+                    >
+                        0
+                    </strong>
+
+                    <p>
+                        Shifts with clock out
+                    </p>
+
+                </article>
+
+            </section>
+
+
+           
+
+            <section class="admin-section">
+
+                <div class="admin-section-heading">
+
+                    <div>
+
+                        <p class="admin-section-label">
+                            STAFF ACTIVITY
+                        </p>
+
+                        <h2>
+                            Today's Attendance
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-table-container">
+
+                    <table class="admin-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Staff
+                                </th>
+
+                                <th>
+                                    Staff ID
+                                </th>
+
+                                <th>
+                                    Department
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Clock In
+                                </th>
+
+                                <th>
+                                    Clock Out
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="adminAttendanceRecordsTable">
+
+                            <tr>
+
+                                <td
+                                    colspan="7"
+                                    class="empty-table"
+                                >
+                                    No attendance records yet.
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```

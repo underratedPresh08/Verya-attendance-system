@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VEYRA — Admin Login</title>
+
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <div class="login-page">
+
+        <div class="login-card">
+
+            <a href="login.html" class="back-link">
+                ← Back
+            </a>
+
+            <div class="login-logo">
+                <div class="logo-mark">V</div>
+                <span>VEYRA</span>
+            </div>
+
+            <div class="login-heading">
+                <p class="login-eyebrow">ADMIN ACCESS</p>
+
+                <h1>Welcome back</h1>
+
+                <p>
+                    Sign in to manage staff attendance and records.
+                </p>
+            </div>
+
+
+            <form id="adminLoginForm" class="login-form">
+
+                <div class="form-group">
+
+                    <label for="adminId">
+                        Admin ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="adminId"
+                        placeholder="Enter your admin ID"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="adminPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="adminPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-options">
+
+                    <label class="remember-me">
+                        <input type="checkbox">
+                        <span>Remember me</span>
+                    </label>
+
+                    <a href="#" class="forgot-link">
+                        Forgot password?
+                    </a>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="login-submit"
+                >
+                    Sign In
+                </button>
+
+                <p id="adminLoginMessage" class="login-message"></p>
+
+            </form>
+
+
+            <div class="switch-login">
+
+                <span>Are you a staff member?</span>
+
+                <a href="staff-login.html">
+                    Staff Login
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

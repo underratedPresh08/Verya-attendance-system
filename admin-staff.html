@@ -1,0 +1,338 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VEYRA — Staff Management</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="admin-sidebar">
+
+            <a href="index.html" class="admin-logo">
+                <span class="admin-logo-icon">V</span>
+                <span class="admin-logo-name">VEYRA</span>
+            </a>
+
+            <nav class="admin-nav">
+
+                <a href="admin-dashboard.html" class="admin-nav-item">
+                    <span class="nav-icon">⌂</span>
+                    Dashboard
+                </a>
+
+                <a href="admin-attendance.html" class="admin-nav-item">
+                    <span class="nav-icon">◷</span>
+                    Attendance
+                </a>
+
+                <a href="admin-staff.html" class="admin-nav-item active">
+                    <span class="nav-icon">♙</span>
+                    Staff
+                </a>
+
+                <a href="admin-reports.html" class="admin-nav-item">
+                    <span class="nav-icon">▤</span>
+                    Reports
+                </a>
+
+                <a href="admin-settings.html" class="admin-nav-item">
+                    <span class="nav-icon">⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+            <div class="admin-sidebar-bottom">
+
+                <a href="login.html" class="admin-logout">
+                    <span class="nav-icon">↪</span>
+                    Log Out
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="admin-main">
+
+            <!-- PAGE HEADER -->
+            <header class="admin-header">
+
+                <div>
+
+                    <p class="admin-eyebrow">
+                        STAFF MANAGEMENT
+                    </p>
+
+                    <h1>
+                        Manage Staff
+                    </h1>
+
+                    <p class="admin-header-description">
+                        Register and manage staff members in your organization.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <!-- REGISTER STAFF -->
+            <section class="admin-section">
+
+                <div class="admin-section-heading">
+
+                    <div>
+
+                        <p class="admin-section-label">
+                            NEW STAFF MEMBER
+                        </p>
+
+                        <h2>
+                            Register Staff
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="staff-form-card">
+
+                    <form id="staffRegistrationForm">
+
+                        <div class="staff-form-grid">
+
+                            <!-- FULL NAME -->
+                            <div class="admin-form-group">
+
+                                <label for="staffFullName">
+                                    Full Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="staffFullName"
+                                    placeholder="e.g. John Doe"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- STAFF ID -->
+                            <div class="admin-form-group">
+
+                                <label for="newStaffId">
+                                    Staff ID
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="newStaffId"
+                                    placeholder="e.g. ST-002"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- DEPARTMENT -->
+                            <div class="admin-form-group">
+
+                                <label for="staffDepartment">
+                                    Department
+                                </label>
+
+                                <select id="staffDepartment" required>
+
+                                    <option value="">
+                                        Select department
+                                    </option>
+
+                                    <option value="IT">
+                                        IT
+                                    </option>
+
+                                    <option value="Human Resources">
+                                        Human Resources
+                                    </option>
+
+                                    <option value="Finance">
+                                        Finance
+                                    </option>
+
+                                    <option value="Marketing">
+                                        Marketing
+                                    </option>
+
+                                    <option value="Operations">
+                                        Operations
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- ROLE -->
+                            <div class="admin-form-group">
+
+                                <label for="staffRole">
+                                    Role
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="staffRole"
+                                    placeholder="e.g. Frontend Developer"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- PASSWORD -->
+                            <div class="admin-form-group">
+
+                                <label for="newStaffPassword">
+                                    Temporary Password
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="newStaffPassword"
+                                    placeholder="Create a password"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="staff-form-footer">
+
+                            <p id="staffRegistrationMessage">
+                            </p>
+
+                            <button
+                                type="submit"
+                                class="admin-primary-button"
+                            >
+                                + Register Staff
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+
+            <!-- STAFF LIST -->
+            <section class="admin-section">
+
+                <div class="admin-section-heading">
+
+                    <div>
+
+                        <p class="admin-section-label">
+                            REGISTERED STAFF
+                        </p>
+
+                        <h2>
+                            Staff Directory
+                        </h2>
+
+                    </div>
+
+                    <span
+                        class="staff-count"
+                        id="staffCount"
+                    >
+                        0 staff
+                    </span>
+
+                </div>
+
+
+                <div class="admin-table-container">
+
+                    <table class="admin-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Staff
+                                </th>
+
+                                <th>
+                                    Staff ID
+                                </th>
+
+                                <th>
+                                    Department
+                                </th>
+
+                                <th>
+                                    Role
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="staffTableBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="5"
+                                    class="empty-table"
+                                >
+                                    No staff members registered yet.
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```

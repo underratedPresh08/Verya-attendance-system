@@ -1,0 +1,528 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="VEYRA admin attendance dashboard."
+    >
+
+    <title>VEYRA — Admin Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="admin-layout">
+
+
+       
+
+        <aside class="admin-sidebar">
+
+            <a href="index.html" class="admin-logo">
+
+                <span class="admin-logo-icon">
+                    V
+                </span>
+
+                <span class="admin-logo-name">
+                    VEYRA
+                </span>
+
+            </a>
+
+
+            <nav class="admin-nav">
+
+                <a
+                    href="admin-dashboard.html"
+                    class="admin-nav-item active"
+                >
+
+                    <span class="nav-icon">⌂</span>
+
+                    Dashboard
+
+                </a>
+
+
+                <a
+                    href="admin-attendance.html"
+                    class="admin-nav-item"
+                >
+
+                    <span class="nav-icon">◷</span>
+
+                    Attendance
+
+                </a>
+
+
+                <a
+                    href="admin-staff.html"
+                    class="admin-nav-item"
+                >
+
+                    <span class="nav-icon">♙</span>
+
+                    Staff
+
+                </a>
+
+
+                <a
+                    href="admin-reports.html"
+                    class="admin-nav-item"
+                >
+
+                    <span class="nav-icon">▤</span>
+
+                    Reports
+
+                </a>
+
+
+                <a
+                    href="admin-settings.html"
+                    class="admin-nav-item"
+                >
+
+                    <span class="nav-icon">⚙</span>
+
+                    Settings
+
+                </a>
+
+            </nav>
+
+
+            <div class="admin-sidebar-bottom">
+
+                <a
+                    href="login.html"
+                    class="admin-logout"
+                >
+
+                    <span class="nav-icon">↪</span>
+
+                    Log Out
+
+                </a>
+
+            </div>
+
+        </aside>
+
+
+
+        
+        <main class="admin-main">
+
+
+       
+
+            <header class="admin-header">
+
+                <div>
+
+                    <p class="admin-eyebrow">
+                        ADMIN DASHBOARD
+                    </p>
+
+                    <h1>
+                        Good morning, Admin 👋
+                    </h1>
+
+                    <p class="admin-header-description">
+                        Manage your team's attendance and keep track of daily activity.
+                    </p>
+
+                </div>
+
+
+                <div class="admin-date">
+
+                    <span>
+                        TODAY
+                    </span>
+
+                    <strong id="adminCurrentDate">
+                        Loading...
+                    </strong>
+
+                </div>
+
+            </header>
+
+
+
+           
+
+            <section class="admin-stats">
+
+
+                <!-- TOTAL STAFF -->
+
+                <article class="admin-stat-card">
+
+                    <div class="stat-card-header">
+
+                        <span class="stat-label">
+                            TOTAL STAFF
+                        </span>
+
+                        <span class="stat-icon">
+                            ♙
+                        </span>
+
+                    </div>
+
+
+                    <strong
+                        class="stat-number"
+                        id="totalStaff"
+                    >
+                        0
+                    </strong>
+
+
+                    <p>
+                        Registered staff members
+                    </p>
+
+                </article>
+
+
+
+                <!-- PRESENT -->
+
+                <article class="admin-stat-card">
+
+                    <div class="stat-card-header">
+
+                        <span class="stat-label">
+                            PRESENT TODAY
+                        </span>
+
+                        <span class="stat-icon">
+                            ✓
+                        </span>
+
+                    </div>
+
+
+                    <strong
+                        class="stat-number"
+                        id="presentToday"
+                    >
+                        0
+                    </strong>
+
+
+                    <p>
+                        Staff who have clocked in
+                    </p>
+
+                </article>
+
+
+
+                <!-- ABSENT -->
+
+                <article class="admin-stat-card">
+
+                    <div class="stat-card-header">
+
+                        <span class="stat-label">
+                            ABSENT
+                        </span>
+
+                        <span class="stat-icon">
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <strong
+                        class="stat-number"
+                        id="absentToday"
+                    >
+                        0
+                    </strong>
+
+
+                    <p>
+                        Staff who haven't clocked in
+                    </p>
+
+                </article>
+
+
+
+                <!-- LATE -->
+
+                <article class="admin-stat-card">
+
+                    <div class="stat-card-header">
+
+                        <span class="stat-label">
+                            LATE TODAY
+                        </span>
+
+                        <span class="stat-icon">
+                            !
+                        </span>
+
+                    </div>
+
+
+                    <strong
+                        class="stat-number"
+                        id="lateToday"
+                    >
+                        0
+                    </strong>
+
+
+                    <p>
+                        Arrived after 8:00 AM
+                    </p>
+
+                </article>
+
+
+            </section>
+
+
+
+            
+
+            <section class="admin-section">
+
+
+                <div class="admin-section-heading">
+
+                    <div>
+
+                        <p class="admin-section-label">
+                            TODAY'S ATTENDANCE
+                        </p>
+
+                        <h2>
+                            Attendance overview
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="admin-attendance.html"
+                        class="admin-view-link"
+                    >
+                        View all →
+                    </a>
+
+                </div>
+
+
+
+                <div class="admin-table-container">
+
+                    <table class="admin-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Staff
+                                </th>
+
+                                <th>
+                                    Department
+                                </th>
+
+                                <th>
+                                    Clock In
+                                </th>
+
+                                <th>
+                                    Clock Out
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="adminAttendanceTable">
+
+                            <tr>
+
+                                <td
+                                    colspan="5"
+                                    class="empty-table"
+                                >
+
+                                    No attendance recorded yet.
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+
+           
+
+            <section class="admin-section">
+
+
+                <div class="admin-section-heading">
+
+                    <div>
+
+                        <p class="admin-section-label">
+                            QUICK ACTIONS
+                        </p>
+
+                        <h2>
+                            Manage VEYRA
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-quick-actions">
+
+
+                    <a
+                        href="admin-staff.html"
+                        class="admin-action-card"
+                    >
+
+                        <span class="action-icon">
+                            +
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Add Staff
+                            </strong>
+
+                            <p>
+                                Register a new staff member
+                            </p>
+
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        href="admin-attendance.html"
+                        class="admin-action-card"
+                    >
+
+                        <span class="action-icon">
+                            ◷
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                View Attendance
+                            </strong>
+
+                            <p>
+                                Review today's attendance
+                            </p>
+
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        href="admin-reports.html"
+                        class="admin-action-card"
+                    >
+
+                        <span class="action-icon">
+                            ▤
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Reports
+                            </strong>
+
+                            <p>
+                                View attendance reports
+                            </p>
+
+                        </div>
+
+                        <span class="action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```

@@ -1,0 +1,357 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="VEYRA staff attendance."
+    >
+
+    <title>VEYRA — Attendance</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+      
+        <aside class="sidebar">
+
+            <a href="staff-dashboard.html" class="logo">
+                <span class="logo-icon">V</span>
+                <span class="logo-name">VEYRA</span>
+            </a>
+
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="staff-dashboard.html"
+                    class="nav-item"
+                >
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+
+                <a
+                    href="attendance.html"
+                    class="nav-item active"
+                >
+                    <span>◷</span>
+                    Attendance
+                </a>
+
+
+                <a
+                    href="history.html"
+                    class="nav-item"
+                >
+                    <span>▣</span>
+                    History
+                </a>
+
+
+                <a
+                    href="settings.html"
+                    class="nav-item"
+                >
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a
+                    href="login.html"
+                    class="logout-link"
+                >
+                    <span>↪</span>
+                    Log Out
+                </a>
+
+            </div>
+
+        </aside>
+
+
+
+
+        <main class="dashboard-main">
+
+            <!-- HEADER -->
+
+            <header class="dashboard-header">
+
+                <div>
+
+                    <p class="welcome-label">
+                        ATTENDANCE
+                    </p>
+
+                    <h1>
+                        Mark Your Attendance
+                    </h1>
+
+                    <p class="header-subtitle">
+                        Clock in when you start work and clock out when your shift ends.
+                    </p>
+
+                </div>
+
+
+                <div class="header-date">
+
+                    <span>
+                        TODAY
+                    </span>
+
+                    <strong id="attendanceCurrentDate">
+                        Loading...
+                    </strong>
+
+                </div>
+
+            </header>
+
+
+
+           
+
+            <section class="attendance-card">
+
+                <div class="attendance-info">
+
+                    <span class="status-label">
+                        TODAY'S ATTENDANCE
+                    </span>
+
+                    <h2>
+                        You're currently
+                        <span id="attendanceStatus">
+                            Not Clocked In
+                        </span>
+                    </h2>
+
+                    <p>
+                        Your attendance time will be recorded automatically by VEYRA.
+                    </p>
+
+                </div>
+
+
+                <div class="clock-action">
+
+                    <div
+                        class="current-time"
+                        id="attendanceCurrentTime"
+                    >
+                        08:00 AM
+                    </div>
+
+
+                    <div class="clock-buttons">
+
+                        <button
+                            type="button"
+                            id="attendanceClockIn"
+                            class="clock-button"
+                        >
+                            Clock In
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="attendanceClockOut"
+                            class="clock-button clock-out-button"
+                            disabled
+                        >
+                            Clock Out
+                        </button>
+
+                    </div>
+
+
+                    <p id="attendanceMessage">
+                        You have not started today's shift.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+          
+
+            <section class="overview-section">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <p class="section-label">
+                            TODAY
+                        </p>
+
+                        <h2>
+                            Attendance Summary
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+
+                    <!-- CLOCK IN -->
+
+                    <article class="stat-card">
+
+                        <span class="stat-icon">
+                            ◷
+                        </span>
+
+                        <div>
+
+                            <p>
+                                Clock In
+                            </p>
+
+                            <strong id="todayClockIn">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CLOCK OUT -->
+
+                    <article class="stat-card">
+
+                        <span class="stat-icon">
+                            ✓
+                        </span>
+
+                        <div>
+
+                            <p>
+                                Clock Out
+                            </p>
+
+                            <strong id="todayClockOut">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- HOURS -->
+
+                    <article class="stat-card">
+
+                        <span class="stat-icon">
+                            ◴
+                        </span>
+
+                        <div>
+
+                            <p>
+                                Hours Worked
+                            </p>
+
+                            <strong id="todayHoursWorked">
+                                0h 00m
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- STATUS -->
+
+                    <article class="stat-card">
+
+                        <span class="stat-icon">
+                            ●
+                        </span>
+
+                        <div>
+
+                            <p>
+                                Status
+                            </p>
+
+                            <strong id="todayAttendanceStatus">
+                                Not Started
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+
+            <section class="settings-section">
+
+                <div class="settings-card">
+
+                    <p class="section-label">
+                        HOW IT WORKS
+                    </p>
+
+                    <h2>
+                        Simple attendance tracking
+                    </h2>
+
+                    <p>
+                        Clock in when you begin your workday.
+                        When your work is finished, clock out.
+                        VEYRA records your attendance so your administrator
+                        can monitor working hours and attendance history.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```

@@ -1,0 +1,419 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VEYRA — Admin Settings</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+
+        <div class="admin-logo">
+            <div class="admin-logo-mark">V</div>
+            <span>VEYRA</span>
+        </div>
+
+        <nav class="admin-nav">
+
+            <a href="admin-dashboard.html" class="admin-nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="admin-attendance.html" class="admin-nav-item">
+                <span>◷</span>
+                Attendance
+            </a>
+
+            <a href="admin-staff.html" class="admin-nav-item">
+                <span>♙</span>
+                Staff
+            </a>
+
+            <a href="admin-reports.html" class="admin-nav-item">
+                <span>▤</span>
+                Reports
+            </a>
+
+            <a href="admin-settings.html" class="admin-nav-item active">
+                <span>⚙</span>
+                Settings
+            </a>
+
+        </nav>
+
+        <div class="admin-sidebar-bottom">
+
+            <a href="login.html" class="admin-nav-item admin-logout">
+                <span>↪</span>
+                Log Out
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+        <!-- HEADER -->
+        <header class="admin-header">
+
+            <div>
+                <p class="admin-eyebrow">SETTINGS</p>
+
+                <h1>System Settings</h1>
+
+                <p class="admin-header-subtitle">
+                    Manage your VEYRA attendance system preferences.
+                </p>
+            </div>
+
+        </header>
+
+
+        <!-- ADMIN PROFILE -->
+        <section class="admin-settings-card">
+
+            <div class="settings-card-heading">
+
+                <div>
+                    <p class="admin-eyebrow">ACCOUNT</p>
+                    <h2>Admin Profile</h2>
+                    <p>
+                        Manage the administrator information used for this system.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="admin-settings-grid">
+
+                <div class="admin-form-group">
+
+                    <label for="adminName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="adminName"
+                        value="System Administrator"
+                    >
+
+                </div>
+
+
+                <div class="admin-form-group">
+
+                    <label for="adminEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="adminEmail"
+                        placeholder="admin@example.com"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="admin-primary-button"
+                id="saveAdminProfile"
+            >
+                Save Changes
+            </button>
+
+            <p
+                id="adminProfileMessage"
+                class="settings-message"
+            ></p>
+
+        </section>
+
+
+        <!-- ATTENDANCE SETTINGS -->
+        <section class="admin-settings-card">
+
+            <div class="settings-card-heading">
+
+                <div>
+                    <p class="admin-eyebrow">ATTENDANCE</p>
+
+                    <h2>Attendance Rules</h2>
+
+                    <p>
+                        Configure the basic rules used when recording attendance.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="admin-settings-grid">
+
+                <div class="admin-form-group">
+
+                    <label for="workStartTime">
+                        Work Start Time
+                    </label>
+
+                    <input
+                        type="time"
+                        id="workStartTime"
+                        value="08:00"
+                    >
+
+                    <small>
+                        Staff who clock in after this time will be marked late.
+                    </small>
+
+                </div>
+
+
+                <div class="admin-form-group">
+
+                    <label for="workHours">
+                        Required Work Hours
+                    </label>
+
+                    <input
+                        type="number"
+                        id="workHours"
+                        value="8"
+                        min="1"
+                        max="24"
+                    >
+
+                    <small>
+                        Number of hours expected in a normal workday.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="admin-primary-button"
+                id="saveAttendanceSettings"
+            >
+                Save Attendance Rules
+            </button>
+
+            <p
+                id="attendanceSettingsMessage"
+                class="settings-message"
+            ></p>
+
+        </section>
+
+
+        <!-- NOTIFICATIONS -->
+        <section class="admin-settings-card">
+
+            <div class="settings-card-heading">
+
+                <div>
+                    <p class="admin-eyebrow">NOTIFICATIONS</p>
+
+                    <h2>System Notifications</h2>
+
+                    <p>
+                        Choose which system notifications should be enabled.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="settings-toggle-list">
+
+                <div class="settings-toggle-row">
+
+                    <div>
+                        <strong>Late Arrival Alerts</strong>
+
+                        <p>
+                            Notify the administrator when staff members arrive late.
+                        </p>
+                    </div>
+
+                    <label class="toggle-switch">
+
+                        <input
+                            type="checkbox"
+                            id="lateArrivalNotifications"
+                            checked
+                        >
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="settings-toggle-row">
+
+                    <div>
+                        <strong>Attendance Reminders</strong>
+
+                        <p>
+                            Remind staff members to clock in and out.
+                        </p>
+                    </div>
+
+                    <label class="toggle-switch">
+
+                        <input
+                            type="checkbox"
+                            id="attendanceReminders"
+                            checked
+                        >
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="settings-toggle-row">
+
+                    <div>
+                        <strong>Daily Summary</strong>
+
+                        <p>
+                            Show a daily attendance summary on the dashboard.
+                        </p>
+                    </div>
+
+                    <label class="toggle-switch">
+
+                        <input
+                            type="checkbox"
+                            id="dailySummary"
+                            checked
+                        >
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="admin-primary-button"
+                id="saveNotificationSettings"
+            >
+                Save Notification Settings
+            </button>
+
+            <p
+                id="notificationSettingsMessage"
+                class="settings-message"
+            ></p>
+
+        </section>
+
+
+        <!-- SECURITY -->
+        <section class="admin-settings-card">
+
+            <div class="settings-card-heading">
+
+                <div>
+                    <p class="admin-eyebrow">SECURITY</p>
+
+                    <h2>Admin Security</h2>
+
+                    <p>
+                        Update the administrator password used to access VEYRA.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-settings-grid">
+
+                <div class="admin-form-group">
+
+                    <label for="currentAdminPassword">
+                        Current Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="currentAdminPassword"
+                        placeholder="Enter current password"
+                    >
+
+                </div>
+
+
+                <div class="admin-form-group">
+
+                    <label for="newAdminPassword">
+                        New Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="newAdminPassword"
+                        placeholder="Enter new password"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="admin-primary-button"
+                id="changeAdminPassword"
+            >
+                Change Password
+            </button>
+
+            <p
+                id="adminPasswordMessage"
+                class="settings-message"
+            ></p>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,332 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="VEYRA staff attendance history."
+    >
+
+    <title>VEYRA — Attendance History</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <a href="staff-dashboard.html" class="logo">
+                <span class="logo-icon">V</span>
+                <span class="logo-name">VEYRA</span>
+            </a>
+
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="staff-dashboard.html"
+                    class="nav-item"
+                >
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+
+                <a
+                    href="attendance.html"
+                    class="nav-item"
+                >
+                    <span>◷</span>
+                    Attendance
+                </a>
+
+
+                <a
+                    href="history.html"
+                    class="nav-item active"
+                >
+                    <span>▣</span>
+                    History
+                </a>
+
+
+                <a
+                    href="settings.html"
+                    class="nav-item"
+                >
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a
+                    href="login.html"
+                    class="logout-link"
+                >
+                    <span>↪</span>
+                    Log Out
+                </a>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="dashboard-main">
+
+            <!-- HEADER -->
+
+            <header class="dashboard-header">
+
+                <div>
+
+                    <p class="welcome-label">
+                        ATTENDANCE HISTORY
+                    </p>
+
+                    <h1>
+                        Your Attendance History
+                    </h1>
+
+                    <p class="header-subtitle">
+                        Review your previous attendance records.
+                    </p>
+
+                </div>
+
+
+                <div class="header-date">
+
+                    <span>
+                        TODAY
+                    </span>
+
+                    <strong id="historyCurrentDate">
+                        Loading...
+                    </strong>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- SUMMARY -->
+
+            <section class="overview-section">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <p class="section-label">
+                            OVERVIEW
+                        </p>
+
+                        <h2>
+                            Attendance Summary
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <article class="stat-card">
+
+                        <span class="stat-icon">
+                            ✓
+                        </span>
+
+                        <div>
+
+                            <p>
+                                Days Present
+                            </p>
+
+                            <strong id="historyDaysPresent">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <span class="stat-icon">
+                            ◷
+                        </span>
+
+                        <div>
+
+                            <p>
+                                Days Late
+                            </p>
+
+                            <strong id="historyDaysLate">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <span class="stat-icon">
+                            ◴
+                        </span>
+
+                        <div>
+
+                            <p>
+                                Hours Worked
+                            </p>
+
+                            <strong id="historyHoursWorked">
+                                0h
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <span class="stat-icon">
+                            ▣
+                        </span>
+
+                        <div>
+
+                            <p>
+                                Records
+                            </p>
+
+                            <strong id="historyTotalRecords">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- HISTORY TABLE -->
+
+            <section class="recent-section">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <p class="section-label">
+                            RECORDS
+                        </p>
+
+                        <h2>
+                            Attendance Records
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-card">
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Date
+                                    </th>
+
+                                    <th>
+                                        Clock In
+                                    </th>
+
+                                    <th>
+                                        Clock Out
+                                    </th>
+
+                                    <th>
+                                        Hours
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="staffHistoryTableBody">
+
+                                <tr>
+
+                                    <td colspan="5">
+                                        No attendance records yet.
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```
