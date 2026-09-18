@@ -873,54 +873,61 @@ textarea {
 /* =====================================================
    RESPONSIVE — SMALL TABLETS
    ===================================================== */
+/* =====================================================
+   RESPONSIVE — SMALL TABLETS
+   ===================================================== */
 
 @media (max-width: 760px) {
 
     .admin-sidebar {
         width: 74px;
-
         padding: 22px 10px;
     }
 
     .admin-logo {
         justify-content: center;
-
         padding: 0;
-
         margin-bottom: 35px;
     }
 
-    .admin-logo-name {
+    /* Hide the VEYRA text when sidebar becomes compact */
+    .admin-logo .logo-name {
         display: none;
+    }
+
+    /* Keep the logo image centered and contained */
+    .admin-logo .logo-image {
+        width: 38px;
+        height: 38px;
+        max-width: 38px;
+        max-height: 38px;
+        object-fit: contain;
+        display: block;
+        flex-shrink: 0;
     }
 
     .admin-nav-item,
     .admin-logout {
         justify-content: center;
-
         padding: 13px;
-
         font-size: 0;
     }
 
     .admin-nav-item .nav-icon,
     .admin-logout .nav-icon {
         width: 20px;
-
+        height: 20px;
         font-size: 18px;
     }
 
     .admin-main {
         width: calc(100% - 74px);
-
         margin-left: 74px;
-
         padding: 28px 20px 45px;
     }
 
     .admin-header {
         flex-direction: column;
-
         gap: 20px;
     }
 
@@ -932,7 +939,6 @@ textarea {
         width: 100%;
     }
 }
-
 
 /* =====================================================
    RESPONSIVE — MOBILE
