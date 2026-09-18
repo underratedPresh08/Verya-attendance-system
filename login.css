@@ -92,40 +92,33 @@ a {
 .login-logo {
     display: inline-flex;
     align-items: center;
-
     gap: 10px;
-
-    margin-bottom: 42px;
+    margin-bottom: 24px;
 }
 
-.logo-icon {
+.login-logo .logo-image {
     width: 38px;
     height: 38px;
-
-    display: grid;
-    place-items: center;
-
-    color: white;
-    background: var(--blue);
-
-    border-radius: 10px;
-
-    font-family: "Manrope", sans-serif;
-    font-size: 18px;
-    font-weight: 800;
+    max-width: 38px;
+    max-height: 38px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
 }
 
 .logo-name {
     color: var(--text-dark);
-
     font-family: "Manrope", sans-serif;
-
     font-size: 20px;
     font-weight: 800;
-
     letter-spacing: 0.08em;
 }
 
+.back-link svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
 
 .login-heading {
     margin-bottom: 32px;

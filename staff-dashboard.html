@@ -21,56 +21,90 @@
 
 <body>
 
-
     <div class="dashboard-layout">
 
-
-       
+        <!-- SIDEBAR -->
         <aside class="sidebar">
 
             <a href="index.html" class="logo">
 
-                <span class="logo-icon">
-                    V
-                </span>
-
-                <span class="logo-name">
-                    VEYRA
-                </span>
+                <img src="Unknown.jpeg" alt="VEYRA logo" class="logo-image">
+<span class="logo-name">VEYRA</span>
 
             </a>
 
-
             <nav class="sidebar-nav">
 
-                <a href="#" class="nav-item active">
-                    <span>⌂</span>
+                <a href="staff-dashboard.html" class="nav-item active">
+
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+                            <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+                            <rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+                            <rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+                        </svg>
+                    </span>
+
                     Dashboard
+
                 </a>
 
-                <a href="#" class="nav-item">
-                    <span>◷</span>
+                <a href="attendance.html" class="nav-item">
+
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
+                            <path d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+
                     Attendance
+
                 </a>
 
-                <a href="#" class="nav-item">
-                    <span>▣</span>
+                <a href="history.html" class="nav-item">
+
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M6 4.5h12A1.5 1.5 0 0 1 19.5 6v12A1.5 1.5 0 0 1 18 19.5H6A1.5 1.5 0 0 1 4.5 18V6A1.5 1.5 0 0 1 6 4.5Z" stroke="currentColor" stroke-width="1.8"/>
+                            <path d="M8 9h8M8 12h8M8 15h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+
                     History
+
                 </a>
 
                 <a href="setting.html" class="nav-item">
-                    <span>⚙</span>
+
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" stroke="currentColor" stroke-width="1.8"/>
+                            <path d="M19 13.2v-2.4l-2-.6a6.8 6.8 0 0 0-.7-1.7l.9-1.9-1.7-1.7-1.9.9a6.8 6.8 0 0 0-1.7-.7l-.6-2h-2.4l-.6 2a6.8 6.8 0 0 0-1.7.7l-1.9-.9-1.7 1.7.9 1.9a6.8 6.8 0 0 0-.7 1.7l-2 .6v2.4l2 .6c.2.6.4 1.2.7 1.7l-.9 1.9 1.7 1.7 1.9-.9c.5.3 1.1.5 1.7.7l.6 2h2.4l.6-2c.6-.2 1.2-.4 1.7-.7l1.9.9 1.7-1.7-.9-1.9c.3-.5.5-1.1.7-1.7l2-.6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+
                     Settings
+
                 </a>
 
             </nav>
 
-
             <div class="sidebar-bottom">
 
                 <a href="login.html" class="logout-link">
-                    <span>↪</span>
+
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M10 17l5-5-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15 12H4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M13 5h5a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+
                     Log Out
+
                 </a>
 
             </div>
@@ -78,11 +112,10 @@
         </aside>
 
 
-
+        <!-- MAIN CONTENT -->
         <main class="dashboard-main">
 
-
-            
+            <!-- HEADER -->
             <header class="dashboard-header">
 
                 <div>
@@ -91,8 +124,8 @@
                         STAFF DASHBOARD
                     </p>
 
-                    <h1>
-                        Good morning, Alex 👋
+                    <h1 id="greetingText">
+                        Good morning
                     </h1>
 
                     <p class="header-subtitle">
@@ -101,15 +134,14 @@
 
                 </div>
 
-
                 <div class="header-date">
 
                     <span>
                         TODAY
                     </span>
 
-                    <strong>
-                        September 15, 2026
+                    <strong id="currentDate">
+                        Loading...
                     </strong>
 
                 </div>
@@ -117,7 +149,7 @@
             </header>
 
 
-            
+            <!-- TODAY'S ATTENDANCE -->
             <section class="attendance-card">
 
                 <div class="attendance-info">
@@ -138,33 +170,35 @@
 
                 </div>
 
-
                 <div class="clock-action">
 
-                    <div class="current-time" id="currentTime">
+                    <div
+                        class="current-time"
+                        id="currentTime"
+                    >
                         08:00 AM
                     </div>
 
                     <div class="clock-buttons">
 
-    <button
-        type="button"
-        id="clockInButton"
-        class="clock-button"
-    >
-        Clock In
-    </button>
+                        <button
+                            type="button"
+                            id="clockInButton"
+                            class="clock-button"
+                        >
+                            Clock In
+                        </button>
 
-    <button
-        type="button"
-        id="clockOutButton"
-        class="clock-button clock-out-button"
-        disabled
-    >
-        Clock Out
-    </button>
+                        <button
+                            type="button"
+                            id="clockOutButton"
+                            class="clock-button clock-out-button"
+                            disabled
+                        >
+                            Clock Out
+                        </button>
 
-</div>
+                    </div>
 
                     <p id="clockMessage">
                         You have not started today's shift.
@@ -175,7 +209,7 @@
             </section>
 
 
-
+            <!-- OVERVIEW -->
             <section class="overview-section">
 
                 <div class="section-title">
@@ -197,11 +231,13 @@
 
                 <div class="stats-grid">
 
-
                     <article class="stat-card">
 
-                        <span class="stat-icon">
-                            ◷
+                        <span class="stat-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </span>
 
                         <div>
@@ -221,8 +257,11 @@
 
                     <article class="stat-card">
 
-                        <span class="stat-icon">
-                            ✓
+                        <span class="stat-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="m8.5 12 2.3 2.3 4.8-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </span>
 
                         <div>
@@ -231,8 +270,8 @@
                                 Days Present
                             </p>
 
-                            <strong>
-                                18
+                            <strong id="daysPresent">
+                                0
                             </strong>
 
                         </div>
@@ -242,8 +281,12 @@
 
                     <article class="stat-card">
 
-                        <span class="stat-icon">
-                            ⚠
+                        <span class="stat-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M12 3.8 20 18H4L12 3.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                                <path d="M12 9v4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                <circle cx="12" cy="16.2" r="1" fill="currentColor"/>
+                            </svg>
                         </span>
 
                         <div>
@@ -252,8 +295,8 @@
                                 Late Days
                             </p>
 
-                            <strong>
-                                2
+                            <strong id="lateDays">
+                                0
                             </strong>
 
                         </div>
@@ -263,8 +306,11 @@
 
                     <article class="stat-card">
 
-                        <span class="stat-icon">
-                            ▣
+                        <span class="stat-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </span>
 
                         <div>
@@ -273,21 +319,20 @@
                                 Attendance Rate
                             </p>
 
-                            <strong>
-                                90%
+                            <strong id="attendanceRate">
+                                0%
                             </strong>
 
                         </div>
 
                     </article>
 
-
                 </div>
 
             </section>
 
 
-
+            <!-- TODAY'S PROGRESS -->
             <section class="progress-card">
 
                 <div class="progress-header">
@@ -310,7 +355,6 @@
 
                 </div>
 
-
                 <div class="progress-track">
 
                     <div
@@ -320,14 +364,13 @@
 
                 </div>
 
-
                 <div class="progress-footer">
 
                     <span>
                         Minimum required working time
                     </span>
 
-                    <strong>
+                    <strong id="requiredWorkHoursText">
                         8 hours
                     </strong>
 
@@ -336,6 +379,7 @@
             </section>
 
 
+            <!-- RECENT ACTIVITY -->
             <section class="activity-section">
 
                 <div class="section-title">
@@ -352,14 +396,20 @@
 
                     </div>
 
-                    <a href="#" class="view-all">
-                        View all →
+                    <a
+                        href="history.html"
+                        class="view-all"
+                    >
+                        View all
                     </a>
 
                 </div>
 
 
-                <div class="activity-table">
+                <div
+                    class="activity-table"
+                    id="recentActivityTable"
+                >
 
                     <div class="table-row table-heading">
 
@@ -386,84 +436,11 @@
                     </div>
 
 
-                    <div class="table-row">
-
-                        <span>
-                            Sep 14, 2026
-                        </span>
-
-                        <span>
-                            08:02 AM
-                        </span>
-
-                        <span>
-                            04:08 PM
-                        </span>
-
-                        <span>
-                            8h 06m
-                        </span>
-
-                        <span class="table-status present">
-                            Present
-                        </span>
-
-                    </div>
-
-
-                    <div class="table-row">
-
-                        <span>
-                            Sep 13, 2026
-                        </span>
-
-                        <span>
-                            08:15 AM
-                        </span>
-
-                        <span>
-                            04:20 PM
-                        </span>
-
-                        <span>
-                            8h 05m
-                        </span>
-
-                        <span class="table-status late">
-                            Late
-                        </span>
-
-                    </div>
-
-
-                    <div class="table-row">
-
-                        <span>
-                            Sep 12, 2026
-                        </span>
-
-                        <span>
-                            07:58 AM
-                        </span>
-
-                        <span>
-                            04:01 PM
-                        </span>
-
-                        <span>
-                            8h 03m
-                        </span>
-
-                        <span class="table-status present">
-                            Present
-                        </span>
-
-                    </div>
+                    <div id="recentActivityRows"></div>
 
                 </div>
 
             </section>
-
 
         </main>
 

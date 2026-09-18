@@ -56,10 +56,103 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    /* =================================================
+       PAGE ACCESS PROTECTION
+       ================================================= */
+
+    const currentPage =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+
+    const staffPages = [
+        "staff-dashboard.html",
+        "attendance.html",
+        "history.html",
+        "setting.html"
+    ];
+
+
+    const adminPages = [
+        "admin-dashboard.html",
+        "admin-staff.html",
+        "admin-attendance.html",
+        "admin-reports.html",
+        "admin-settings.html"
+    ];
+
+
+    const staffLoggedIn =
+        !!localStorage.getItem(
+            "veyraLoggedInStaffId"
+        );
+
+
+    const adminLoggedIn =
+        localStorage.getItem(
+            "veyraAdminLoggedIn"
+        ) === "true";
+
+
+    if (
+        staffPages.includes(currentPage) &&
+        !staffLoggedIn
+    ) {
+
+        window.location.href =
+            "login.html";
+
+        return;
+    }
+
+
+    if (
+        adminPages.includes(currentPage) &&
+        !adminLoggedIn
+    ) {
+
+        window.location.href =
+            "login.html";
+
+        return;
+    }
+
+
+    if (
+        currentPage === "staff-login.html" &&
+        staffLoggedIn
+    ) {
+
+        window.location.href =
+            "staff-dashboard.html";
+
+        return;
+    }
+
+
+    if (
+        currentPage === "admin-login.html" &&
+        adminLoggedIn
+    ) {
+
+        window.location.href =
+            "admin-dashboard.html";
+
+        return;
+    }
+
+
+    /* =================================================
+       DATE / TIME HELPERS
+       ================================================= */
+
     function getToday() {
         const now = new Date();
 
         const year = now.getFullYear();
+
         const month = String(
             now.getMonth() + 1
         ).padStart(2, "0");
@@ -144,6 +237,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    function getRequiredWorkHours() {
+        return Number(
+            localStorage.getItem(
+                "veyraWorkHours"
+            )
+        ) || 8;
+    }
+
+
+    function getRequiredWorkMinutes() {
+        return getRequiredWorkHours() * 60;
+    }
+
+
     /* =================================================
        CURRENT DATE
        ================================================= */
@@ -170,21 +277,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    displayCurrentDate(
-        "adminCurrentDate"
-    );
-
-    displayCurrentDate(
-        "attendanceCurrentDate"
-    );
-
-    displayCurrentDate(
-        "reportsCurrentDate"
-    );
-
-    displayCurrentDate(
-        "settingsCurrentDate"
-    );
+    displayCurrentDate("currentDate");
+    displayCurrentDate("adminCurrentDate");
+    displayCurrentDate("attendanceCurrentDate");
+    displayCurrentDate("reportsCurrentDate");
+    displayCurrentDate("settingsCurrentDate");
 
 
     /* =================================================
@@ -224,12 +321,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
 
-                const registeredStaff =
-                    getStaff();
-
-
                 const staff =
-                    registeredStaff.find(
+                    getStaff().find(
                         person =>
                             person.staffId ===
                                 staffId &&
@@ -315,9 +408,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
 
+                const savedAdminPassword =
+                    localStorage.getItem(
+                        "veyraAdminPassword"
+                    ) || "123456";
+
+
                 if (
                     adminId === "ADMIN-001" &&
-                    password === "123456"
+                    password === savedAdminPassword
                 ) {
 
                     localStorage.setItem(
@@ -357,7 +456,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =================================================
-       STAFF PROFILE ON DASHBOARD
+       STAFF DASHBOARD — GREETING
        ================================================= */
 
     const loggedInStaff =
@@ -365,8 +464,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     const dashboardHeading =
-        document.querySelector(
-            ".dashboard-header h1"
+        document.getElementById(
+            "greetingText"
         );
 
 
@@ -379,8 +478,29 @@ document.addEventListener("DOMContentLoaded", function () {
             loggedInStaff.fullName
                 .split(" ")[0];
 
+
+        const hour =
+            new Date().getHours();
+
+
+        let greeting = "Good morning";
+
+
+        if (hour >= 12 && hour < 17) {
+
+            greeting =
+                "Good afternoon";
+
+        } else if (hour >= 17) {
+
+            greeting =
+                "Good evening";
+
+        }
+
+
         dashboardHeading.textContent =
-            `Good morning, ${firstName} 👋`;
+            `${greeting}, ${firstName}`;
 
     }
 
@@ -425,7 +545,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =================================================
-       STAFF DASHBOARD — ATTENDANCE
+       STAFF DASHBOARD — ATTENDANCE ELEMENTS
        ================================================= */
 
     const clockInButton =
@@ -443,7 +563,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "clockMessage"
         );
 
-    const hoursWorked =
+    const hoursWorkedElement =
         document.getElementById(
             "hoursWorked"
         );
@@ -456,6 +576,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const workProgressText =
         document.getElementById(
             "workProgressText"
+        );
+
+    const requiredWorkHoursText =
+        document.getElementById(
+            "requiredWorkHoursText"
         );
 
 
@@ -471,12 +596,209 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!status) return;
 
-        status.textContent = text;
+        status.textContent =
+            text;
 
-        status.style.color = color;
+        status.style.color =
+            color;
 
     }
 
+
+    /* =================================================
+       STAFF DASHBOARD — STATS
+       ================================================= */
+
+    function updateDashboardStats() {
+
+        const staff =
+            getLoggedInStaff();
+
+
+        if (!staff) return;
+
+
+        const records =
+            getAttendance().filter(
+                record =>
+                    record.staffId ===
+                    staff.staffId
+            );
+
+
+        const daysPresentElement =
+            document.getElementById(
+                "daysPresent"
+            );
+
+
+        const lateDaysElement =
+            document.getElementById(
+                "lateDays"
+            );
+
+
+        const attendanceRateElement =
+            document.getElementById(
+                "attendanceRate"
+            );
+
+
+        const daysPresent =
+            records.filter(
+                record =>
+                    record.status === "Present" ||
+                    record.status === "Late"
+            ).length;
+
+
+        const lateDays =
+            records.filter(
+                record =>
+                    record.status === "Late"
+            ).length;
+
+
+        /*
+           Since the prototype only stores days
+           on which attendance was recorded,
+           the attendance rate represents the
+           percentage of recorded attendance days
+           that were successfully attended.
+        */
+
+        const attendanceRate =
+            records.length
+                ? Math.round(
+                    (daysPresent /
+                        records.length) *
+                    100
+                )
+                : 0;
+
+
+        if (daysPresentElement) {
+
+            daysPresentElement.textContent =
+                daysPresent;
+
+        }
+
+
+        if (lateDaysElement) {
+
+            lateDaysElement.textContent =
+                lateDays;
+
+        }
+
+
+        if (attendanceRateElement) {
+
+            attendanceRateElement.textContent =
+                `${attendanceRate}%`;
+
+        }
+
+    }
+
+
+    /* =================================================
+       STAFF DASHBOARD — RECENT ACTIVITY
+       ================================================= */
+
+    function updateDashboardHistory() {
+
+        const rows =
+            document.getElementById(
+                "recentActivityRows"
+            );
+
+
+        if (!rows) return;
+
+
+        const staff =
+            getLoggedInStaff();
+
+
+        if (!staff) return;
+
+
+        const records =
+            getAttendance()
+                .filter(
+                    record =>
+                        record.staffId ===
+                        staff.staffId
+                )
+                .sort(
+                    (a, b) =>
+                        b.date.localeCompare(
+                            a.date
+                        )
+                )
+                .slice(0, 5);
+
+
+        if (!records.length) {
+
+            rows.innerHTML = `
+                <div class="table-row">
+                    <span colspan="5">
+                        No attendance history yet.
+                    </span>
+                </div>
+            `;
+
+            return;
+        }
+
+
+        rows.innerHTML =
+            records.map(
+                record => `
+                    <div class="table-row">
+
+                        <span>
+                            ${formatDate(
+                                record.date
+                            )}
+                        </span>
+
+                        <span>
+                            ${formatTime(
+                                record.clockIn
+                            )}
+                        </span>
+
+                        <span>
+                            ${formatTime(
+                                record.clockOut
+                            )}
+                        </span>
+
+                        <span>
+                            ${calculateHours(
+                                record.clockIn,
+                                record.clockOut
+                            )}
+                        </span>
+
+                        <span>
+                            ${record.status}
+                        </span>
+
+                    </div>
+                `
+            ).join("");
+
+    }
+
+
+    /* =================================================
+       STAFF DASHBOARD — ATTENDANCE
+       ================================================= */
 
     function updateAttendanceDisplay() {
 
@@ -509,8 +831,27 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
+        const requiredHours =
+            getRequiredWorkHours();
+
+        const requiredMinutes =
+            getRequiredWorkMinutes();
+
+
+        if (requiredWorkHoursText) {
+
+            requiredWorkHoursText.textContent =
+                `${requiredHours} ${
+                    requiredHours === 1
+                        ? "hour"
+                        : "hours"
+                }`;
+
+        }
+
+
         /* ==========================
-           NO RECORD YET
+           NO RECORD
            ========================== */
 
         if (!record) {
@@ -520,6 +861,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             clockInButton.textContent =
                 "Clock In";
+
 
             if (clockOutButton) {
 
@@ -531,12 +873,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
 
-            if (hoursWorked) {
 
-                hoursWorked.textContent =
+            if (hoursWorkedElement) {
+
+                hoursWorkedElement.textContent =
                     "0h 00m";
 
             }
+
 
             if (workProgress) {
 
@@ -545,12 +889,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
 
+
             if (workProgressText) {
 
                 workProgressText.textContent =
-                    "0h 00m / 8h";
+                    `0h 00m / ${requiredHours}h`;
 
             }
+
 
             if (clockMessage) {
 
@@ -558,6 +904,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     "You have not started today's shift.";
 
             }
+
 
             updateStatus(
                 "Not Clocked In",
@@ -599,9 +946,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-            if (hoursWorked) {
+            if (hoursWorkedElement) {
 
-                hoursWorked.textContent =
+                hoursWorkedElement.textContent =
                     worked;
 
             }
@@ -618,7 +965,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (workProgressText) {
 
                 workProgressText.textContent =
-                    `${worked} / 8h`;
+                    `${worked} / ${requiredHours}h`;
 
             }
 
@@ -672,25 +1019,25 @@ document.addEventListener("DOMContentLoaded", function () {
             totalMinutes % 60;
 
 
-        if (hoursWorked) {
+        const formattedWorked =
+            `${hours}h ${String(
+                minutes
+            ).padStart(2, "0")}m`;
 
-            hoursWorked.textContent =
-                `${hours}h ${String(
-                    minutes
-                ).padStart(2, "0")}m`;
+
+        if (hoursWorkedElement) {
+
+            hoursWorkedElement.textContent =
+                formattedWorked;
 
         }
-
-
-        const requiredMinutes =
-            8 * 60;
 
 
         const progress =
             Math.min(
                 (totalMinutes /
                     requiredMinutes) *
-                    100,
+                100,
                 100
             );
 
@@ -706,19 +1053,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (workProgressText) {
 
             workProgressText.textContent =
-                `${hours}h ${String(
-                    minutes
-                ).padStart(2, "0")}m / 8h`;
+                `${formattedWorked} / ${requiredHours}h`;
 
         }
 
 
         if (clockOutButton) {
-
-            /*
-               Clock out is allowed once
-               the required 8 hours are complete.
-            */
 
             if (
                 totalMinutes >=
@@ -735,7 +1075,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (clockMessage) {
 
                     clockMessage.textContent =
-                        "You have completed 8 hours. You can now clock out.";
+                        `You have completed ${requiredHours} hours. You can now clock out.`;
 
                 }
 
@@ -896,10 +1236,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 updateAttendanceDisplay();
-
+                updateDashboardStats();
+                updateDashboardHistory();
                 updateStaffAttendancePage();
-
+                updateStaffHistory();
                 updateAdminDashboard();
+                updateAdminAttendancePage();
+                updateReports();
 
             }
         );
@@ -957,15 +1300,23 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
 
+                const requiredMinutes =
+                    getRequiredWorkMinutes();
+
+
+                const requiredHours =
+                    getRequiredWorkHours();
+
+
                 if (
                     workedMinutes <
-                    8 * 60
+                    requiredMinutes
                 ) {
 
                     if (clockMessage) {
 
                         clockMessage.textContent =
-                            "You must complete 8 hours before clocking out.";
+                            `You must complete ${requiredHours} hours before clocking out.`;
 
                     }
 
@@ -988,10 +1339,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 updateAttendanceDisplay();
-
+                updateDashboardStats();
+                updateDashboardHistory();
                 updateStaffAttendancePage();
-
+                updateStaffHistory();
                 updateAdminDashboard();
+                updateAdminAttendancePage();
+                updateReports();
 
             }
         );
@@ -1002,9 +1356,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (clockInButton) {
 
         updateAttendanceDisplay();
+        updateDashboardStats();
+        updateDashboardHistory();
 
         setInterval(
-            updateAttendanceDisplay,
+            function () {
+
+                updateAttendanceDisplay();
+                updateDashboardStats();
+                updateDashboardHistory();
+
+            },
             1000
         );
 
@@ -1205,7 +1567,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 records.filter(
                     record =>
                         record.status ===
-                        "Present"
+                            "Present" ||
+                        record.status ===
+                            "Late"
                 ).length;
 
         }
@@ -1282,7 +1646,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             tableBody.innerHTML = `
                 <tr>
-                    <td colspan="6">
+                    <td colspan="5">
                         No attendance history yet.
                     </td>
                 </tr>
@@ -1412,11 +1776,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     getStaff();
 
 
-            const exists = staff.some(
-    person =>
-        String(person.staffId || "").trim().toLowerCase() ===
-        String(staffId || "").trim().toLowerCase()
-);
+                const exists = staff.some(
+                    person =>
+                        String(person.staffId || "")
+                            .trim()
+                            .toLowerCase() ===
+                        String(staffId || "")
+                            .trim()
+                            .toLowerCase()
+                );
 
 
                 if (exists) {
@@ -2029,7 +2397,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         personRecords.filter(
                             record =>
                                 record.status ===
-                                "Present"
+                                    "Present" ||
+                                record.status ===
+                                    "Late"
                         ).length;
 
 
@@ -2458,9 +2828,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 const workHours =
-                    document.getElementById(
-                        "workHours"
-                    ).value;
+                    Number(
+                        document.getElementById(
+                            "workHours"
+                        ).value
+                    );
+
+
+                const safeWorkHours =
+                    Math.min(
+                        Math.max(
+                            workHours || 8,
+                            1
+                        ),
+                        24
+                    );
 
 
                 localStorage.setItem(
@@ -2471,7 +2853,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 localStorage.setItem(
                     "veyraWorkHours",
-                    workHours
+                    safeWorkHours
                 );
 
 
@@ -2491,71 +2873,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 }
 
-            }
-        );
 
-    }
-
-
-    /* =================================================
-       ADMIN SETTINGS — NOTIFICATIONS
-       ================================================= */
-
-    const saveNotificationSettings =
-        document.getElementById(
-            "saveNotificationSettings"
-        );
-
-
-    if (saveNotificationSettings) {
-
-        saveNotificationSettings.addEventListener(
-            "click",
-            function () {
-
-                const settings = {
-
-                    lateArrival:
-                        document.getElementById(
-                            "lateArrivalNotifications"
-                        )?.checked || false,
-
-                    reminders:
-                        document.getElementById(
-                            "attendanceReminders"
-                        )?.checked || false,
-
-                    dailySummary:
-                        document.getElementById(
-                            "dailySummary"
-                        )?.checked || false
-
-                };
-
-
-                localStorage.setItem(
-                    "veyraNotificationSettings",
-                    JSON.stringify(
-                        settings
-                    )
-                );
-
-
-                const message =
-                    document.getElementById(
-                        "notificationSettingsMessage"
-                    );
-
-
-                if (message) {
-
-                    message.textContent =
-                        "Notification settings saved.";
-
-                    message.style.color =
-                        "#16a34a";
-
-                }
+                updateAttendanceDisplay();
+                updateDashboardHistory();
 
             }
         );
@@ -2746,7 +3066,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document
         .querySelectorAll(
-            ".logout-link"
+            ".logout-link, .admin-logout"
         )
         .forEach(
             link => {

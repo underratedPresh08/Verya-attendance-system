@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Sign in to your VEYRA administrator account."
+    >
 
     <title>VEYRA — Admin Login</title>
 
@@ -11,31 +21,50 @@
 
 <body>
 
-    <div class="login-page">
+    <main class="login-page">
 
-        <div class="login-card">
+        <div class="login-container">
 
-            <a href="login.html" class="back-link">
-                ← Back
+            <!-- BRAND -->
+
+            <a
+                href="index.html"
+                class="logo login-logo"
+            >
+<img src="Unknown.jpeg" alt="VEYRA logo" class="logo-image">
+<span class="logo-name">VEYRA</span>
+
             </a>
 
-            <div class="login-logo">
-                <div class="logo-mark">V</div>
-                <span>VEYRA</span>
-            </div>
+
+            <!-- INTRO -->
 
             <div class="login-heading">
-                <p class="login-eyebrow">ADMIN ACCESS</p>
 
-                <h1>Welcome back</h1>
+                <span class="eyebrow">
+                    ADMIN ACCESS
+                </span>
+
+                <h1>
+                    Welcome back
+                </h1>
 
                 <p>
-                    Sign in to manage staff attendance and records.
+                    Sign in to manage staff attendance,
+                    records, and reports.
                 </p>
+
             </div>
 
 
-            <form id="adminLoginForm" class="login-form">
+            <!-- ADMIN LOGIN FORM -->
+
+            <form
+                id="adminLoginForm"
+                class="login-form"
+            >
+
+                <!-- ADMIN ID -->
 
                 <div class="form-group">
 
@@ -46,12 +75,16 @@
                     <input
                         type="text"
                         id="adminId"
+                        name="adminId"
                         placeholder="Enter your admin ID"
+                        autocomplete="username"
                         required
                     >
 
                 </div>
 
+
+                <!-- PASSWORD -->
 
                 <div class="form-group">
 
@@ -62,26 +95,36 @@
                     <input
                         type="password"
                         id="adminPassword"
+                        name="password"
                         placeholder="Enter your password"
+                        autocomplete="current-password"
                         required
                     >
 
                 </div>
 
 
+                <!-- REMEMBER ME -->
+
                 <div class="form-options">
 
                     <label class="remember-me">
-                        <input type="checkbox">
-                        <span>Remember me</span>
-                    </label>
 
-                    <a href="#" class="forgot-link">
-                        Forgot password?
-                    </a>
+                        <input
+                            type="checkbox"
+                            id="adminRememberMe"
+                        >
+
+                        <span>
+                            Remember me
+                        </span>
+
+                    </label>
 
                 </div>
 
+
+                <!-- SIGN IN -->
 
                 <button
                     type="submit"
@@ -90,14 +133,25 @@
                     Sign In
                 </button>
 
-                <p id="adminLoginMessage" class="login-message"></p>
+
+                <!-- LOGIN MESSAGE -->
+
+                <p
+                    id="adminLoginMessage"
+                    class="login-message"
+                    role="alert"
+                ></p>
 
             </form>
 
 
+            <!-- STAFF SWITCH -->
+
             <div class="switch-login">
 
-                <span>Are you a staff member?</span>
+                <span>
+                    Need staff access?
+                </span>
 
                 <a href="staff-login.html">
                     Staff Login
@@ -105,12 +159,40 @@
 
             </div>
 
+
+            <!-- BACK TO ROLE SELECTION -->
+
+            <a
+                href="login.html"
+                class="back-link"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+
+                <span>
+                    Choose another account
+                </span>
+
+            </a>
+
         </div>
 
-    </div>
+    </main>
 
 
     <script src="script.js"></script>
 
 </body>
+
 </html>

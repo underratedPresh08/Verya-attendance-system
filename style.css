@@ -1,14 +1,18 @@
-
+/* =====================================================
+   VEYRA — LANDING PAGE
+   ===================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
 
 
+/* =====================================================
+   ROOT
+   ===================================================== */
 
 :root {
     --primary: #4f46e5;
     --primary-dark: #3730a3;
     --primary-light: #eef2ff;
-
     --accent: #7c3aed;
 
     --text-dark: #172033;
@@ -18,7 +22,6 @@
     --white: #ffffff;
     --background: #f8faff;
     --section-bg: #f3f6ff;
-
     --border: #e5e9f2;
 
     --success: #16a34a;
@@ -34,6 +37,10 @@
     --container: 1180px;
 }
 
+
+/* =====================================================
+   RESET
+   ===================================================== */
 
 * {
     margin: 0;
@@ -68,6 +75,10 @@ img {
 }
 
 
+/* =====================================================
+   GLOBAL
+   ===================================================== */
+
 .container {
     width: min(100% - 40px, var(--container));
     margin-inline: auto;
@@ -79,18 +90,18 @@ section {
 
 .eyebrow {
     display: inline-block;
-
+    margin-bottom: 16px;
     color: var(--primary);
-
     font-size: 12px;
     font-weight: 700;
-
     letter-spacing: 0.12em;
     text-transform: uppercase;
-
-    margin-bottom: 16px;
 }
 
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
 
 .btn {
     display: inline-flex;
@@ -108,7 +119,8 @@ section {
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease,
-        background 0.2s ease;
+        background 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .btn:hover {
@@ -118,20 +130,17 @@ section {
 .btn-primary {
     color: var(--white);
     background: var(--primary);
-
     box-shadow: 0 8px 20px rgba(79, 70, 229, 0.20);
 }
 
 .btn-primary:hover {
     background: var(--primary-dark);
-
     box-shadow: 0 12px 25px rgba(79, 70, 229, 0.28);
 }
 
 .btn-secondary {
     color: var(--text-dark);
     background: var(--white);
-
     border: 1px solid var(--border);
 }
 
@@ -140,13 +149,17 @@ section {
     box-shadow: var(--shadow-sm);
 }
 
+
+/* =====================================================
+   NAVBAR
+   ===================================================== */
+
 .navbar {
     position: sticky;
     top: 0;
     z-index: 100;
 
     background: rgba(255, 255, 255, 0.94);
-
     border-bottom: 1px solid rgba(229, 233, 242, 0.8);
 
     backdrop-filter: blur(12px);
@@ -163,11 +176,14 @@ section {
 }
 
 
+/* =====================================================
+   LOGO
+   ===================================================== */
+
 .logo {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-
     flex-shrink: 0;
 }
 
@@ -199,6 +215,17 @@ section {
 
     letter-spacing: 0.08em;
 }
+.logo-image {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* =====================================================
+   NAV LINKS
+   ===================================================== */
 
 .nav-links {
     display: flex;
@@ -208,7 +235,6 @@ section {
 
 .nav-links a {
     color: #596579;
-
     font-size: 14px;
     font-weight: 600;
 
@@ -219,6 +245,11 @@ section {
     color: var(--primary);
 }
 
+
+/* =====================================================
+   NAV ACTIONS
+   ===================================================== */
+
 .nav-actions {
     display: flex;
     align-items: center;
@@ -227,9 +258,10 @@ section {
 
 .login-link {
     color: var(--text-dark);
-
     font-size: 14px;
     font-weight: 600;
+
+    transition: color 0.2s ease;
 }
 
 .login-link:hover {
@@ -237,9 +269,12 @@ section {
 }
 
 
+/* =====================================================
+   HERO
+   ===================================================== */
+
 .hero {
     position: relative;
-
     overflow: hidden;
 
     padding: 90px 0 110px;
@@ -267,22 +302,20 @@ section {
     gap: 70px;
 }
 
-
 .hero-text {
     max-width: 610px;
 }
 
 .hero-text h1 {
+    margin-bottom: 24px;
+
     color: var(--text-dark);
 
     font-family: "Manrope", sans-serif;
-
     font-size: clamp(42px, 5vw, 68px);
+
     line-height: 1.08;
-
     letter-spacing: -0.045em;
-
-    margin-bottom: 24px;
 }
 
 .hero-text h1 span {
@@ -292,29 +325,36 @@ section {
 
 .hero-text > p {
     max-width: 540px;
+    margin-bottom: 32px;
 
     color: var(--text);
 
     font-size: 17px;
     line-height: 1.8;
-
-    margin-bottom: 32px;
 }
 
 
+/* =====================================================
+   HERO BUTTONS
+   ===================================================== */
 
 .hero-buttons {
     display: flex;
     align-items: center;
-    gap: 14px;
 
+    gap: 14px;
     margin-bottom: 28px;
 }
 
 
+/* =====================================================
+   HERO TRUST
+   ===================================================== */
+
 .hero-trust {
     display: flex;
     flex-wrap: wrap;
+
     gap: 18px;
 
     color: #667085;
@@ -326,9 +366,21 @@ section {
 .hero-trust span {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 7px;
 }
 
+.hero-trust svg {
+    width: 15px;
+    height: 15px;
+
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+
+/* =====================================================
+   DASHBOARD PREVIEW
+   ===================================================== */
 
 .hero-preview {
     position: relative;
@@ -342,7 +394,6 @@ section {
     background: var(--white);
 
     border: 1px solid var(--border);
-
     border-radius: var(--radius-lg);
 
     box-shadow: var(--shadow-md);
@@ -356,6 +407,10 @@ section {
     transform: rotate(0deg) translateY(-5px);
 }
 
+
+/* =====================================================
+   PREVIEW HEADER
+   ===================================================== */
 
 .preview-header {
     display: flex;
@@ -372,6 +427,8 @@ section {
 .small-label {
     display: block;
 
+    margin-bottom: 5px;
+
     color: #98a2b3;
 
     font-size: 10px;
@@ -379,21 +436,20 @@ section {
 
     letter-spacing: 0.1em;
     text-transform: uppercase;
-
-    margin-bottom: 5px;
 }
 
 .preview-header h3 {
     color: var(--text-dark);
 
     font-family: "Manrope", sans-serif;
-
     font-size: 17px;
     font-weight: 700;
 }
 
 
-
+/* =====================================================
+   STATUS
+   ===================================================== */
 
 .status {
     display: inline-flex;
@@ -415,6 +471,9 @@ section {
 }
 
 
+/* =====================================================
+   TIME DISPLAY
+   ===================================================== */
 
 .time-display {
     display: flex;
@@ -432,11 +491,16 @@ section {
     display: grid;
     place-items: center;
 
+    color: var(--primary);
+
     background: var(--primary-light);
 
     border-radius: 50%;
+}
 
-    font-size: 25px;
+.clock-circle svg {
+    width: 26px;
+    height: 26px;
 }
 
 .time-display strong {
@@ -445,7 +509,6 @@ section {
     color: var(--text-dark);
 
     font-family: "Manrope", sans-serif;
-
     font-size: 28px;
     font-weight: 800;
 
@@ -453,7 +516,9 @@ section {
 }
 
 
-
+/* =====================================================
+   PROGRESS
+   ===================================================== */
 
 .progress-section {
     padding: 20px;
@@ -502,6 +567,9 @@ section {
 }
 
 
+/* =====================================================
+   PREVIEW FOOTER
+   ===================================================== */
 
 .preview-footer {
     padding-top: 20px;
@@ -512,7 +580,23 @@ section {
     font-weight: 500;
 }
 
+.preview-footer span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
 
+.preview-footer svg {
+    width: 15px;
+    height: 15px;
+
+    flex-shrink: 0;
+}
+
+
+/* =====================================================
+   SECTION HEADINGS
+   ===================================================== */
 
 .section-heading {
     max-width: 650px;
@@ -523,16 +607,16 @@ section {
 }
 
 .section-heading h2 {
+    margin-bottom: 16px;
+
     color: var(--text-dark);
 
     font-family: "Manrope", sans-serif;
 
     font-size: clamp(32px, 4vw, 46px);
+
     line-height: 1.15;
-
     letter-spacing: -0.035em;
-
-    margin-bottom: 16px;
 }
 
 .section-heading p {
@@ -542,6 +626,10 @@ section {
     line-height: 1.8;
 }
 
+
+/* =====================================================
+   FEATURES
+   ===================================================== */
 
 .features {
     background: var(--white);
@@ -561,7 +649,6 @@ section {
     background: var(--white);
 
     border: 1px solid var(--border);
-
     border-radius: var(--radius-md);
 
     transition:
@@ -578,6 +665,11 @@ section {
     box-shadow: var(--shadow-md);
 }
 
+
+/* =====================================================
+   FEATURE ICONS
+   ===================================================== */
+
 .feature-icon {
     width: 48px;
     height: 48px;
@@ -587,22 +679,27 @@ section {
 
     margin-bottom: 22px;
 
+    color: var(--primary);
+
     background: var(--primary-light);
 
     border-radius: 12px;
+}
 
-    font-size: 21px;
+.feature-icon svg {
+    width: 23px;
+    height: 23px;
 }
 
 .feature-card h3 {
+    margin-bottom: 10px;
+
     color: var(--text-dark);
 
     font-family: "Manrope", sans-serif;
 
     font-size: 17px;
     font-weight: 700;
-
-    margin-bottom: 10px;
 }
 
 .feature-card p {
@@ -612,6 +709,10 @@ section {
     line-height: 1.7;
 }
 
+
+/* =====================================================
+   HOW IT WORKS
+   ===================================================== */
 
 .how-it-works {
     background: var(--section-bg);
@@ -633,12 +734,13 @@ section {
     background: var(--white);
 
     border: 1px solid var(--border);
-
     border-radius: var(--radius-md);
 }
 
 .step-number {
     display: inline-block;
+
+    margin-bottom: 35px;
 
     color: var(--primary);
 
@@ -648,28 +750,28 @@ section {
     font-weight: 800;
 
     letter-spacing: 0.08em;
-
-    margin-bottom: 35px;
 }
 
 .step h3 {
+    margin-bottom: 10px;
+
     color: var(--text-dark);
 
     font-family: "Manrope", sans-serif;
-
     font-size: 20px;
-
-    margin-bottom: 10px;
 }
 
 .step p {
     color: var(--text-light);
 
     font-size: 14px;
-
     line-height: 1.7;
 }
 
+
+/* =====================================================
+   ABOUT
+   ===================================================== */
 
 .about {
     background: var(--white);
@@ -690,29 +792,31 @@ section {
 }
 
 .about-text h2 {
+    margin-bottom: 24px;
+
     color: var(--text-dark);
 
     font-family: "Manrope", sans-serif;
 
     font-size: clamp(32px, 4vw, 46px);
+
     line-height: 1.15;
-
     letter-spacing: -0.035em;
-
-    margin-bottom: 24px;
 }
 
 .about-text p {
+    margin-bottom: 14px;
+
     color: var(--text-light);
 
     font-size: 16px;
-
     line-height: 1.8;
-
-    margin-bottom: 14px;
 }
 
 
+/* =====================================================
+   ABOUT HIGHLIGHT
+   ===================================================== */
 
 .about-highlight {
     display: flex;
@@ -729,7 +833,6 @@ section {
     );
 
     border: 1px solid #e4e5ff;
-
     border-radius: var(--radius-lg);
 }
 
@@ -747,24 +850,25 @@ section {
 .about-highlight strong {
     display: block;
 
+    margin-bottom: 6px;
+
     color: var(--text-dark);
 
     font-family: "Manrope", sans-serif;
-
     font-size: 17px;
-
-    margin-bottom: 6px;
 }
 
 .about-highlight p {
     color: var(--text-light);
 
     font-size: 13px;
-
     line-height: 1.6;
 }
 
 
+/* =====================================================
+   CTA
+   ===================================================== */
 
 .cta {
     padding: 70px 0;
@@ -792,13 +896,14 @@ section {
     font-family: "Manrope", sans-serif;
 
     font-size: clamp(30px, 4vw, 44px);
-    line-height: 1.15;
 
+    line-height: 1.15;
     letter-spacing: -0.035em;
 }
 
 .cta .btn-primary {
     color: var(--primary);
+
     background: var(--white);
 
     box-shadow: none;
@@ -809,7 +914,9 @@ section {
 }
 
 
-
+/* =====================================================
+   FOOTER
+   ===================================================== */
 
 .footer {
     padding: 30px 0;
@@ -835,6 +942,9 @@ section {
 }
 
 
+/* =====================================================
+   TABLET
+   ===================================================== */
 
 @media (max-width: 1000px) {
 
@@ -850,8 +960,10 @@ section {
 
     .hero-text {
         max-width: 720px;
-        text-align: center;
+
         margin-inline: auto;
+
+        text-align: center;
     }
 
     .hero-text > p {
@@ -864,8 +976,9 @@ section {
     }
 
     .hero-preview {
-        max-width: 650px;
         width: 100%;
+        max-width: 650px;
+
         margin-inline: auto;
     }
 
@@ -885,6 +998,10 @@ section {
 }
 
 
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
 @media (max-width: 700px) {
 
     section {
@@ -896,7 +1013,7 @@ section {
     }
 
 
-    
+    /* NAV */
 
     .nav-content {
         min-height: 68px;
@@ -916,13 +1033,14 @@ section {
 
     .nav-actions .btn {
         min-height: 42px;
+
         padding-inline: 16px;
 
         font-size: 12px;
     }
 
 
-    
+    /* HERO */
 
     .hero {
         padding: 65px 0 80px;
@@ -954,6 +1072,7 @@ section {
     }
 
 
+    /* PREVIEW */
 
     .preview-card {
         padding: 20px;
@@ -971,12 +1090,14 @@ section {
 
     .progress-info {
         flex-direction: column;
+
         align-items: flex-start;
 
         gap: 4px;
     }
 
 
+    /* FEATURES */
 
     .feature-grid {
         grid-template-columns: 1fr;
@@ -987,13 +1108,15 @@ section {
     }
 
 
+    /* STEPS */
 
     .steps {
         grid-template-columns: 1fr;
     }
 
 
-   
+    /* ABOUT */
+
     .about-highlight {
         padding: 24px;
 
@@ -1013,6 +1136,7 @@ section {
 
     .cta-content {
         flex-direction: column;
+
         align-items: flex-start;
     }
 
@@ -1021,15 +1145,19 @@ section {
     }
 
 
-    
+    /* FOOTER */
+
     .footer-content {
         flex-direction: column;
+
         align-items: flex-start;
     }
-
 }
 
 
+/* =====================================================
+   SMALL PHONES
+   ===================================================== */
 
 @media (max-width: 420px) {
 
@@ -1050,5 +1178,4 @@ section {
     .about-text h2 {
         font-size: 32px;
     }
-
 }

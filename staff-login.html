@@ -11,7 +11,7 @@
 
     <meta
         name="description"
-        content="VEYRA staff login."
+        content="Sign in to your VEYRA staff account."
     >
 
     <title>VEYRA — Staff Login</title>
@@ -27,20 +27,18 @@
 
             <!-- BRAND -->
 
-            <a href="index.html" class="logo login-logo">
+            <a
+                href="index.html"
+                class="logo login-logo"
+            >
 
-                <span class="logo-icon">
-                    V
-                </span>
-
-                <span class="logo-name">
-                    VEYRA
-                </span>
+               <img src="Unknown.jpeg" alt="VEYRA logo" class="logo-image">
+<span class="logo-name">VEYRA</span>
 
             </a>
 
 
-           
+            <!-- INTRO -->
 
             <div class="login-heading">
 
@@ -60,8 +58,14 @@
             </div>
 
 
-            
-            <form id="staffLoginForm" class="login-form">
+            <!-- STAFF LOGIN FORM -->
+
+            <form
+                id="staffLoginForm"
+                class="login-form"
+            >
+
+                <!-- STAFF ID -->
 
                 <div class="form-group">
 
@@ -74,11 +78,14 @@
                         id="staffId"
                         name="staffId"
                         placeholder="e.g. ST-001"
+                        autocomplete="username"
                         required
                     >
 
                 </div>
 
+
+                <!-- PASSWORD -->
 
                 <div class="form-group">
 
@@ -91,11 +98,14 @@
                         id="staffPassword"
                         name="password"
                         placeholder="Enter your password"
+                        autocomplete="current-password"
                         required
                     >
 
                 </div>
 
+
+                <!-- REMEMBER ME -->
 
                 <div class="form-options">
 
@@ -112,12 +122,10 @@
 
                     </label>
 
-                    <a href="#" class="forgot-link">
-                        Forgot password?
-                    </a>
-
                 </div>
 
+
+                <!-- SIGN IN -->
 
                 <button
                     type="submit"
@@ -126,20 +134,24 @@
                     Sign In
                 </button>
 
+
+                <!-- LOGIN MESSAGE -->
+
                 <p
                     id="loginMessage"
                     class="login-message"
+                    role="alert"
                 ></p>
 
             </form>
 
 
-            
+            <!-- ADMIN SWITCH -->
 
             <div class="switch-login">
 
                 <span>
-                    Trying to access the system as an admin?
+                    Need administrator access?
                 </span>
 
                 <a href="admin-login.html">
@@ -149,10 +161,30 @@
             </div>
 
 
-            <!-- BACK -->
+            <!-- BACK TO ROLE SELECTION -->
 
-            <a href="login.html" class="back-link">
-                ← Choose another login
+            <a
+                href="login.html"
+                class="back-link"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+
+                <span>
+                    Choose another account
+                </span>
+
             </a>
 
         </div>
