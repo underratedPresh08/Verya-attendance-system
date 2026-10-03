@@ -1,13 +1,8 @@
-/* =====================================================
-   VEYRA — LANDING PAGE
-   ===================================================== */
+
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
 
 
-/* =====================================================
-   ROOT
-   ===================================================== */
 
 :root {
     --primary: #4f46e5;
@@ -38,9 +33,6 @@
 }
 
 
-/* =====================================================
-   RESET
-   ===================================================== */
 
 * {
     margin: 0;
@@ -53,7 +45,7 @@ html {
 }
 
 body {
-    font-family: "DM Sans", sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: var(--text);
     background: var(--white);
     line-height: 1.6;
@@ -75,9 +67,6 @@ img {
 }
 
 
-/* =====================================================
-   GLOBAL
-   ===================================================== */
 
 .container {
     width: min(100% - 40px, var(--container));
@@ -98,10 +87,6 @@ section {
     text-transform: uppercase;
 }
 
-
-/* =====================================================
-   BUTTONS
-   ===================================================== */
 
 .btn {
     display: inline-flex;
@@ -149,11 +134,6 @@ section {
     box-shadow: var(--shadow-sm);
 }
 
-
-/* =====================================================
-   NAVBAR
-   ===================================================== */
-
 .navbar {
     position: sticky;
     top: 0;
@@ -175,10 +155,6 @@ section {
     gap: 30px;
 }
 
-
-/* =====================================================
-   LOGO
-   ===================================================== */
 
 .logo {
     display: inline-flex;
@@ -223,9 +199,6 @@ section {
 }
 
 
-/* =====================================================
-   NAV LINKS
-   ===================================================== */
 
 .nav-links {
     display: flex;
@@ -246,10 +219,6 @@ section {
 }
 
 
-/* =====================================================
-   NAV ACTIONS
-   ===================================================== */
-
 .nav-actions {
     display: flex;
     align-items: center;
@@ -269,9 +238,7 @@ section {
 }
 
 
-/* =====================================================
-   HERO
-   ===================================================== */
+
 
 .hero {
     position: relative;
@@ -334,10 +301,6 @@ section {
 }
 
 
-/* =====================================================
-   HERO BUTTONS
-   ===================================================== */
-
 .hero-buttons {
     display: flex;
     align-items: center;
@@ -347,9 +310,6 @@ section {
 }
 
 
-/* =====================================================
-   HERO TRUST
-   ===================================================== */
 
 .hero-trust {
     display: flex;
@@ -378,9 +338,6 @@ section {
 }
 
 
-/* =====================================================
-   DASHBOARD PREVIEW
-   ===================================================== */
 
 .hero-preview {
     position: relative;
@@ -399,7 +356,7 @@ section {
     box-shadow: var(--shadow-md);
 
     transform: rotate(1deg);
-
+    
     transition: transform 0.3s ease;
 }
 
@@ -408,9 +365,7 @@ section {
 }
 
 
-/* =====================================================
-   PREVIEW HEADER
-   ===================================================== */
+
 
 .preview-header {
     display: flex;
@@ -429,7 +384,7 @@ section {
 
     margin-bottom: 5px;
 
-    color: #98a2b3;
+    color: blue;
 
     font-size: 10px;
     font-weight: 700;
@@ -445,11 +400,6 @@ section {
     font-size: 17px;
     font-weight: 700;
 }
-
-
-/* =====================================================
-   STATUS
-   ===================================================== */
 
 .status {
     display: inline-flex;
@@ -470,10 +420,6 @@ section {
     background: var(--success-bg);
 }
 
-
-/* =====================================================
-   TIME DISPLAY
-   ===================================================== */
 
 .time-display {
     display: flex;
@@ -516,14 +462,11 @@ section {
 }
 
 
-/* =====================================================
-   PROGRESS
-   ===================================================== */
 
 .progress-section {
     padding: 20px;
 
-    background: #f8f9fc;
+    background: #fcf8f9;
 
     border-radius: 14px;
 }
@@ -558,7 +501,7 @@ section {
 }
 
 .progress {
-    width: 57%;
+    width: 65%;
     height: 100%;
 
     background: var(--primary);
@@ -567,14 +510,11 @@ section {
 }
 
 
-/* =====================================================
-   PREVIEW FOOTER
-   ===================================================== */
 
 .preview-footer {
     padding-top: 20px;
 
-    color: #98a2b3;
+    color: blue;
 
     font-size: 11px;
     font-weight: 500;
@@ -594,9 +534,6 @@ section {
 }
 
 
-/* =====================================================
-   SECTION HEADINGS
-   ===================================================== */
 
 .section-heading {
     max-width: 650px;
@@ -606,30 +543,29 @@ section {
     text-align: center;
 }
 
+
 .section-heading h2 {
     margin-bottom: 16px;
 
     color: var(--text-dark);
 
-    font-family: "Manrope", sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-    font-size: clamp(32px, 4vw, 46px);
+    font-size: clamp(28px, 4vw, 46px);
 
     line-height: 1.15;
     letter-spacing: -0.035em;
 }
 
 .section-heading p {
-    color: var(--text-light);
+    color: (gray);
 
     font-size: 16px;
     line-height: 1.8;
 }
 
 
-/* =====================================================
-   FEATURES
-   ===================================================== */
+
 
 .features {
     background: var(--white);
@@ -658,17 +594,10 @@ section {
 }
 
 .feature-card:hover {
-    transform: translateY(-6px);
-
-    border-color: #d6d9ff;
-
+    transform: translateY(-10px);
+    border-color: var(--primary);
     box-shadow: var(--shadow-md);
 }
-
-
-/* =====================================================
-   FEATURE ICONS
-   ===================================================== */
 
 .feature-icon {
     width: 48px;
@@ -696,23 +625,20 @@ section {
 
     color: var(--text-dark);
 
-    font-family: "Manrope", sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
     font-size: 17px;
     font-weight: 700;
 }
 
 .feature-card p {
-    color: var(--text-light);
+    color: (gray);
 
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.7;
 }
 
 
-/* =====================================================
-   HOW IT WORKS
-   ===================================================== */
 
 .how-it-works {
     background: var(--section-bg);
@@ -737,6 +663,7 @@ section {
     border-radius: var(--radius-md);
 }
 
+
 .step-number {
     display: inline-block;
 
@@ -744,7 +671,7 @@ section {
 
     color: var(--primary);
 
-    font-family: "Manrope", sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
     font-size: 13px;
     font-weight: 800;
@@ -768,10 +695,6 @@ section {
     line-height: 1.7;
 }
 
-
-/* =====================================================
-   ABOUT
-   ===================================================== */
 
 .about {
     background: var(--white);
@@ -813,11 +736,6 @@ section {
     line-height: 1.8;
 }
 
-
-/* =====================================================
-   ABOUT HIGHLIGHT
-   ===================================================== */
-
 .about-highlight {
     display: flex;
     align-items: center;
@@ -839,7 +757,7 @@ section {
 .highlight-number {
     color: var(--primary);
 
-    font-family: "Manrope", sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
     font-size: 58px;
     font-weight: 800;
@@ -866,9 +784,6 @@ section {
 }
 
 
-/* =====================================================
-   CTA
-   ===================================================== */
 
 .cta {
     padding: 70px 0;
@@ -914,12 +829,9 @@ section {
 }
 
 
-/* =====================================================
-   FOOTER
-   ===================================================== */
 
 .footer {
-    padding: 30px 0;
+    padding: 20px 0;
 
     background: #fafbff;
 
@@ -936,15 +848,12 @@ section {
 
 .footer p,
 .footer > .container > span {
-    color: #98a2b3;
+    color: #121213;
 
     font-size: 12px;
 }
 
 
-/* =====================================================
-   TABLET
-   ===================================================== */
 
 @media (max-width: 1000px) {
 
@@ -998,9 +907,6 @@ section {
 }
 
 
-/* =====================================================
-   MOBILE
-   ===================================================== */
 
 @media (max-width: 700px) {
 
@@ -1013,7 +919,7 @@ section {
     }
 
 
-    /* NAV */
+    
 
     .nav-content {
         min-height: 68px;
@@ -1040,7 +946,7 @@ section {
     }
 
 
-    /* HERO */
+  
 
     .hero {
         padding: 65px 0 80px;
@@ -1072,7 +978,7 @@ section {
     }
 
 
-    /* PREVIEW */
+   
 
     .preview-card {
         padding: 20px;
@@ -1097,7 +1003,7 @@ section {
     }
 
 
-    /* FEATURES */
+   
 
     .feature-grid {
         grid-template-columns: 1fr;
@@ -1108,14 +1014,14 @@ section {
     }
 
 
-    /* STEPS */
+   
 
     .steps {
         grid-template-columns: 1fr;
     }
 
 
-    /* ABOUT */
+   
 
     .about-highlight {
         padding: 24px;
@@ -1128,7 +1034,6 @@ section {
     }
 
 
-    /* CTA */
 
     .cta {
         padding: 55px 0;
@@ -1145,7 +1050,7 @@ section {
     }
 
 
-    /* FOOTER */
+   
 
     .footer-content {
         flex-direction: column;
@@ -1155,9 +1060,7 @@ section {
 }
 
 
-/* =====================================================
-   SMALL PHONES
-   ===================================================== */
+
 
 @media (max-width: 420px) {
 

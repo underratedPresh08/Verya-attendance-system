@@ -28,10 +28,6 @@
 }
 
 
-/* =====================================================
-   RESET
-   ===================================================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -43,7 +39,7 @@ html {
 }
 
 body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: sans-serif;
     background: var(--background);
     color: var(--text);
     line-height: 1.6;
@@ -62,9 +58,7 @@ textarea {
 }
 
 
-/* =====================================================
-   ADMIN LAYOUT
-   ===================================================== */
+
 
 .admin-layout {
     min-height: 100vh;
@@ -72,9 +66,6 @@ textarea {
 }
 
 
-/* =====================================================
-   SIDEBAR
-   ===================================================== */
 
 .admin-sidebar {
     width: var(--sidebar-width);
@@ -96,9 +87,7 @@ textarea {
 }
 
 
-/* =====================================================
-   LOGO
-   ===================================================== */
+
 
 .admin-logo {
     display: flex;
@@ -141,9 +130,7 @@ textarea {
 }
 
 
-/* =====================================================
-   NAVIGATION
-   ===================================================== */
+
 
 .admin-nav {
     display: flex;
@@ -202,10 +189,6 @@ textarea {
 }
 
 
-/* =====================================================
-   SIDEBAR BOTTOM
-   ===================================================== */
-
 .admin-sidebar-bottom {
     margin-top: auto;
 }
@@ -216,9 +199,6 @@ textarea {
 }
 
 
-/* =====================================================
-   MAIN CONTENT
-   ===================================================== */
 
 .admin-main {
     width: calc(100% - var(--sidebar-width));
@@ -229,11 +209,6 @@ textarea {
 
     padding: 40px 48px 60px;
 }
-
-
-/* =====================================================
-   HEADER
-   ===================================================== */
 
 .admin-header {
     display: flex;
@@ -249,11 +224,11 @@ textarea {
 .admin-section-label {
     color: var(--primary);
 
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 700;
 
     letter-spacing: 1.4px;
-    text-transform: uppercase;
+    
 }
 
 .admin-header h1 {
@@ -261,11 +236,10 @@ textarea {
 
     color: var(--text);
 
-    font-family: 'Manrope', sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 30px;
     line-height: 1.2;
 
-    letter-spacing: -1px;
 }
 
 .admin-header-description {
@@ -280,9 +254,6 @@ textarea {
 }
 
 
-/* =====================================================
-   DATE CARD
-   ===================================================== */
 
 .admin-date {
     min-width: 160px;
@@ -302,13 +273,11 @@ textarea {
 
     margin-bottom: 3px;
 
-    color: #98a2b3;
+    color: #adb2c0;
 
-    font-size: 10px;
+    font-size: 15px;
     font-weight: 700;
 
-    letter-spacing: 1px;
-    text-transform: uppercase;
 }
 
 .admin-date strong {
@@ -317,10 +286,6 @@ textarea {
     font-size: 13px;
 }
 
-
-/* =====================================================
-   STATISTICS
-   ===================================================== */
 
 .admin-stats {
     display: grid;
@@ -408,9 +373,6 @@ textarea {
 }
 
 
-/* =====================================================
-   SECTIONS
-   ===================================================== */
 
 .admin-section {
     margin-bottom: 38px;
@@ -451,10 +413,6 @@ textarea {
     color: var(--primary-dark);
 }
 
-
-/* =====================================================
-   TABLES
-   ===================================================== */
 
 .admin-table-container {
     overflow-x: auto;
@@ -522,11 +480,6 @@ textarea {
 
     text-align: center;
 }
-
-
-/* =====================================================
-   QUICK ACTIONS
-   ===================================================== */
 
 .admin-quick-actions {
     display: grid;
@@ -613,9 +566,7 @@ textarea {
 }
 
 
-/* =====================================================
-   STAFF REGISTRATION FORM
-   ===================================================== */
+
 
 .staff-form-card {
     padding: 28px;
@@ -697,9 +648,6 @@ textarea {
 }
 
 
-/* =====================================================
-   FORM FOOTER
-   ===================================================== */
 
 .staff-form-footer {
     display: flex;
@@ -722,9 +670,6 @@ textarea {
 }
 
 
-/* =====================================================
-   BUTTONS
-   ===================================================== */
 
 .admin-primary-button {
     min-height: 44px;
@@ -764,9 +709,6 @@ textarea {
 }
 
 
-/* =====================================================
-   STAFF COUNT
-   ===================================================== */
 
 .staff-count {
     color: var(--muted);
@@ -776,9 +718,7 @@ textarea {
 }
 
 
-/* =====================================================
-   STAFF TABLE
-   ===================================================== */
+
 
 #staffTableBody td:first-child {
     font-weight: 600;
@@ -811,9 +751,7 @@ textarea {
 }
 
 
-/* =====================================================
-   STATUS STYLES
-   ===================================================== */
+
 
 .status,
 .attendance-status {
@@ -849,9 +787,7 @@ textarea {
 }
 
 
-/* =====================================================
-   RESPONSIVE — TABLET
-   ===================================================== */
+
 
 @media (max-width: 1050px) {
 
@@ -870,12 +806,6 @@ textarea {
 }
 
 
-/* =====================================================
-   RESPONSIVE — SMALL TABLETS
-   ===================================================== */
-/* =====================================================
-   RESPONSIVE — SMALL TABLETS
-   ===================================================== */
 
 @media (max-width: 760px) {
 
@@ -890,12 +820,12 @@ textarea {
         margin-bottom: 35px;
     }
 
-    /* Hide the VEYRA text when sidebar becomes compact */
+    
     .admin-logo .logo-name {
         display: none;
     }
 
-    /* Keep the logo image centered and contained */
+
     .admin-logo .logo-image {
         width: 38px;
         height: 38px;
@@ -940,10 +870,6 @@ textarea {
     }
 }
 
-/* =====================================================
-   RESPONSIVE — MOBILE
-   ===================================================== */
-
 @media (max-width: 700px) {
 
     .admin-main {
@@ -982,10 +908,6 @@ textarea {
 }
 
 
-/* =====================================================
-   RESPONSIVE — SMALL PHONES
-   ===================================================== */
-
 @media (max-width: 520px) {
 
     .admin-header h1 {
@@ -1019,4 +941,79 @@ textarea {
     object-fit: contain;
     display: block;
     flex-shrink: 0;
+}
+
+.admin-settings-card {
+    margin-bottom: 24px;
+    padding: 28px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.settings-card-heading {
+    margin-bottom: 24px;
+}
+
+.settings-card-heading h2 {
+    margin-top: 5px;
+    color: var(--text);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.settings-card-heading p:not(.admin-eyebrow) {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.admin-settings-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.admin-settings-card .admin-form-group {
+    gap: 8px;
+}
+
+.admin-settings-card small {
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.settings-message {
+    min-height: 20px;
+    margin-top: 12px;
+    color: var(--success);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+@media (max-width: 700px) {
+    .admin-settings-card {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .admin-settings-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+.admin-settings-card .admin-primary-button {
+    margin-top: 18px;
+}
+
+.admin-settings-card small {
+    display: block;
+    margin-top: 6px;
 }

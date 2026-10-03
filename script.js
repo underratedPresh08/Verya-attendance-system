@@ -1,12 +1,7 @@
-/* =====================================================
-   VEYRA — JAVASCRIPT
-   ===================================================== */
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* =================================================
-       STORAGE HELPERS
-       ================================================= */
 
     function getStaff() {
         return JSON.parse(
@@ -56,9 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       PAGE ACCESS PROTECTION
-       ================================================= */
 
     const currentPage =
         window.location.pathname
@@ -143,10 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-
-    /* =================================================
-       DATE / TIME HELPERS
-       ================================================= */
 
     function getToday() {
         const now = new Date();
@@ -251,10 +239,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       CURRENT DATE
-       ================================================= */
-
     function displayCurrentDate(
         elementId
     ) {
@@ -282,11 +266,9 @@ document.addEventListener("DOMContentLoaded", function () {
     displayCurrentDate("attendanceCurrentDate");
     displayCurrentDate("reportsCurrentDate");
     displayCurrentDate("settingsCurrentDate");
+    displayCurrentDate("historyCurrentDate");
+    
 
-
-    /* =================================================
-       STAFF LOGIN
-       ================================================= */
 
     const staffLoginForm =
         document.getElementById(
@@ -337,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Incorrect Staff ID or password.";
 
                     loginMessage.style.color =
-                        "#dc2626";
+                        "#f30b0b";
 
                     return;
                 }
@@ -353,7 +335,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Login successful!";
 
                 loginMessage.style.color =
-                    "#16a34a";
+                    "#07f55e";
 
 
                 setTimeout(function () {
@@ -368,10 +350,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    /* =================================================
-       ADMIN LOGIN
-       ================================================= */
 
     const adminLoginForm =
         document.getElementById(
@@ -411,11 +389,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 const savedAdminPassword =
                     localStorage.getItem(
                         "veyraAdminPassword"
-                    ) || "123456";
+                    ) || "Styrl";
 
 
                 if (
-                    adminId === "ADMIN-001" &&
+                    adminId === "STAYREAL" &&
                     password === savedAdminPassword
                 ) {
 
@@ -429,7 +407,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Login successful!";
 
                     adminLoginMessage.style.color =
-                        "#16a34a";
+                        "#0bee5e";
 
 
                     setTimeout(function () {
@@ -445,7 +423,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Incorrect Admin ID or password.";
 
                     adminLoginMessage.style.color =
-                        "#dc2626";
+                        "#f10a0a";
 
                 }
 
@@ -454,10 +432,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    /* =================================================
-       STAFF DASHBOARD — GREETING
-       ================================================= */
 
     const loggedInStaff =
         getLoggedInStaff();
@@ -505,10 +479,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       STAFF DASHBOARD — CURRENT TIME
-       ================================================= */
-
     const currentTime =
         document.getElementById(
             "currentTime"
@@ -543,10 +513,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    /* =================================================
-       STAFF DASHBOARD — ATTENDANCE ELEMENTS
-       ================================================= */
 
     const clockInButton =
         document.getElementById(
@@ -605,10 +571,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       STAFF DASHBOARD — STATS
-       ================================================= */
-
     function updateDashboardStats() {
 
         const staff =
@@ -659,13 +621,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ).length;
 
 
-        /*
-           Since the prototype only stores days
-           on which attendance was recorded,
-           the attendance rate represents the
-           percentage of recorded attendance days
-           that were successfully attended.
-        */
+       
 
         const attendanceRate =
             records.length
@@ -702,10 +658,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    /* =================================================
-       STAFF DASHBOARD — RECENT ACTIVITY
-       ================================================= */
 
     function updateDashboardHistory() {
 
@@ -796,10 +748,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       STAFF DASHBOARD — ATTENDANCE
-       ================================================= */
-
     function updateAttendanceDisplay() {
 
         if (!clockInButton) return;
@@ -850,9 +798,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /* ==========================
-           NO RECORD
-           ========================== */
+        
 
         if (!record) {
 
@@ -908,16 +854,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             updateStatus(
                 "Not Clocked In",
-                "#77798a"
+                "#595d80"
             );
 
             return;
         }
 
 
-        /* ==========================
-           CLOCKED OUT
-           ========================== */
 
         if (record.clockOut) {
 
@@ -980,16 +923,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             updateStatus(
                 "Clocked Out",
-                "#6366f1"
+                "#4043eb"
             );
 
             return;
         }
 
 
-        /* ==========================
-           CLOCKED IN
-           ========================== */
+        
 
         clockInButton.disabled =
             true;
@@ -1118,16 +1059,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateStatus(
             "Clocked In",
-            "#16a34a"
+            "#08b848"
         );
 
     }
 
 
-    /* =================================================
-       CLOCK IN
-       ================================================= */
-
+    
     if (clockInButton) {
 
         clockInButton.addEventListener(
@@ -1243,6 +1181,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 updateAdminDashboard();
                 updateAdminAttendancePage();
                 updateReports();
+                
 
             }
         );
@@ -1250,9 +1189,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       CLOCK OUT
-       ================================================= */
+
 
     if (clockOutButton) {
 
@@ -1373,9 +1310,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       STAFF ATTENDANCE PAGE
-       ================================================= */
+   
 
     function updateStaffAttendancePage() {
 
@@ -1423,6 +1358,17 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById(
                 "attendanceMessage"
             );
+            const summaryClockIn =
+    document.getElementById("todayClockIn");
+
+const summaryClockOut =
+    document.getElementById("todayClockOut");
+
+const summaryHours =
+    document.getElementById("todayHoursWorked");
+
+const summaryStatus =
+    document.getElementById("todayAttendanceStatus");
 
 
         if (timeElement) {
@@ -1442,23 +1388,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!record) {
 
-            statusElement.textContent =
-                "Not Clocked In";
+    statusElement.textContent =
+        "Not Clocked In";
 
-            if (clockInElement)
-                clockInElement.textContent =
-                    "-";
+    if (clockInElement)
+        clockInElement.textContent =
+            "-";
 
-            if (clockOutElement)
-                clockOutElement.textContent =
-                    "-";
+    if (clockOutElement)
+        clockOutElement.textContent =
+            "-";
 
-            if (messageElement)
-                messageElement.textContent =
-                    "You have not started today's shift.";
+    if (summaryClockIn)
+        summaryClockIn.textContent =
+            "—";
 
-            return;
-        }
+    if (summaryClockOut)
+        summaryClockOut.textContent =
+            "—";
+
+    if (summaryHours)
+        summaryHours.textContent =
+            "0h 00m";
+
+    if (summaryStatus)
+        summaryStatus.textContent =
+            "Not Started";
+
+    if (messageElement)
+        messageElement.textContent =
+            "You have not started today's shift.";
+
+    return;
+}
 
 
         statusElement.textContent =
@@ -1477,6 +1439,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 formatTime(
                     record.clockOut
                 );
+
+                if (summaryClockIn)
+    summaryClockIn.textContent =
+        formatTime(record.clockIn);
+
+if (summaryClockOut)
+    summaryClockOut.textContent =
+        record.clockOut
+            ? formatTime(record.clockOut)
+            : "—";
+
+if (summaryHours)
+    summaryHours.textContent =
+        record.clockOut
+            ? calculateHours(
+                record.clockIn,
+                record.clockOut
+            )
+            : calculateHours(
+                record.clockIn,
+                Date.now()
+            );
+
+if (summaryStatus)
+    summaryStatus.textContent =
+        record.status;
 
 
         if (messageElement) {
@@ -1500,9 +1488,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
-    /* =================================================
-       STAFF HISTORY
-       ================================================= */
+
 
     function updateStaffHistory() {
 
@@ -1698,10 +1684,6 @@ document.addEventListener("DOMContentLoaded", function () {
     updateStaffHistory();
 
 
-    /* =================================================
-       STAFF REGISTRATION — ADMIN
-       ================================================= */
-
     const staffRegistrationForm =
         document.getElementById(
             "staffRegistrationForm"
@@ -1765,7 +1747,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Please complete all fields.";
 
                     message.style.color =
-                        "#dc2626";
+                        "#ec0d0d";
 
                     return;
 
@@ -1793,7 +1775,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "That Staff ID is already registered.";
 
                     message.style.color =
-                        "#dc2626";
+                        "#bd0b0b";
 
                     return;
 
@@ -1827,7 +1809,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Staff member registered successfully.";
 
                 message.style.color =
-                    "#16a34a";
+                    "#09f15e";
 
 
                 staffRegistrationForm.reset();
@@ -1843,9 +1825,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       DISPLAY REGISTERED STAFF
-       ================================================= */
+
 
     function displayStaff() {
 
@@ -1985,11 +1965,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     displayStaff();
-
-
-    /* =================================================
-       ADMIN DASHBOARD
-       ================================================= */
 
     function updateAdminDashboard() {
 
@@ -2148,9 +2123,6 @@ document.addEventListener("DOMContentLoaded", function () {
     updateAdminDashboard();
 
 
-    /* =================================================
-       ADMIN ATTENDANCE PAGE
-       ================================================= */
 
     function updateAdminAttendancePage() {
 
@@ -2289,11 +2261,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     updateAdminAttendancePage();
-
-
-    /* =================================================
-       ADMIN REPORTS
-       ================================================= */
 
     function updateReports() {
 
@@ -2445,11 +2412,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateReports();
 
-
-    /* =================================================
-       STAFF SETTINGS — PROFILE
-       ================================================= */
-
     const profileName =
         document.getElementById(
             "staffProfileName"
@@ -2506,11 +2468,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    /* =================================================
-       STAFF SETTINGS — CHANGE PASSWORD
-       ================================================= */
-
     const staffPasswordForm =
         document.getElementById(
             "staffPasswordForm"
@@ -2542,7 +2499,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "You are not logged in.";
 
                     message.style.color =
-                        "#dc2626";
+                        "#f70606";
 
                     return;
 
@@ -2576,7 +2533,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Current password is incorrect.";
 
                     message.style.color =
-                        "#dc2626";
+                        "#fa0707";
 
                     return;
 
@@ -2592,7 +2549,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "New passwords do not match.";
 
                     message.style.color =
-                        "#dc2626";
+                        "#f80c0c";
 
                     return;
 
@@ -2600,14 +2557,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 if (
-                    newPassword.length < 6
+                    newPassword.length < 8
                 ) {
 
                     message.textContent =
-                        "Password must be at least 6 characters.";
+                        "Password must be at least 8 characters.";
 
                     message.style.color =
-                        "#dc2626";
+                        "#f50c0c";
 
                     return;
 
@@ -2642,7 +2599,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Password changed successfully.";
 
                 message.style.color =
-                    "#16a34a";
+                    "#0aee5e";
 
 
                 staffPasswordForm.reset();
@@ -2652,103 +2609,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    /* =================================================
-       STAFF SETTINGS — THEME
-       ================================================= */
-
-    const staffThemeLight =
-        document.getElementById(
-            "staffThemeLight"
-        );
-
-
-    const staffThemeDark =
-        document.getElementById(
-            "staffThemeDark"
-        );
-
-
-    function applyStaffTheme(
-        theme
-    ) {
-
-        document.body.classList.toggle(
-            "dark-theme",
-            theme === "dark"
-        );
-
-
-        localStorage.setItem(
-            "veyraStaffTheme",
-            theme
-        );
-
-    }
-
-
-    const savedStaffTheme =
-        localStorage.getItem(
-            "veyraStaffTheme"
-        ) || "light";
-
-
-    if (staffThemeLight) {
-
-        staffThemeLight.checked =
-            savedStaffTheme === "light";
-
-
-        staffThemeLight.addEventListener(
-            "change",
-            function () {
-
-                if (this.checked) {
-
-                    applyStaffTheme(
-                        "light"
-                    );
-
-                }
-
-            }
-        );
-
-    }
-
-
-    if (staffThemeDark) {
-
-        staffThemeDark.checked =
-            savedStaffTheme === "dark";
-
-
-        staffThemeDark.addEventListener(
-            "change",
-            function () {
-
-                if (this.checked) {
-
-                    applyStaffTheme(
-                        "dark"
-                    );
-
-                }
-
-            }
-        );
-
-    }
-
-
-    applyStaffTheme(
-        savedStaffTheme
-    );
-
-
-    /* =================================================
-       ADMIN SETTINGS — PROFILE
-       ================================================= */
 
     const saveAdminProfile =
         document.getElementById(
@@ -2795,7 +2655,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Profile saved successfully.";
 
                     message.style.color =
-                        "#16a34a";
+                        "#10f564";
 
                 }
 
@@ -2804,10 +2664,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    /* =================================================
-       ADMIN SETTINGS — ATTENDANCE RULES
-       ================================================= */
 
     const saveAttendanceSettings =
         document.getElementById(
@@ -2869,7 +2725,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Attendance settings saved.";
 
                     message.style.color =
-                        "#16a34a";
+                        "#06f35d";
 
                 }
 
@@ -2881,11 +2737,6 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
     }
-
-
-    /* =================================================
-       ADMIN SETTINGS — CHANGE PASSWORD
-       ================================================= */
 
     const changeAdminPassword =
         document.getElementById(
@@ -2932,7 +2783,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Current password is incorrect.";
 
                     message.style.color =
-                        "#dc2626";
+                        "#ee0c0c";
 
                     return;
 
@@ -2947,7 +2798,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Password must be at least 6 characters.";
 
                     message.style.color =
-                        "#dc2626";
+                        "#f51010";
 
                     return;
 
@@ -2964,17 +2815,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Admin password changed successfully.";
 
                 message.style.color =
-                    "#16a34a";
+                    "#18f569";
 
             }
         );
 
     }
 
-
-    /* =================================================
-       LOAD ADMIN SETTINGS
-       ================================================= */
 
     const savedAdminProfile =
         JSON.parse(
@@ -3010,9 +2857,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       LOAD ATTENDANCE SETTINGS
-       ================================================= */
 
     const savedStartTime =
         localStorage.getItem(
@@ -3058,11 +2902,6 @@ document.addEventListener("DOMContentLoaded", function () {
             savedWorkHours;
 
     }
-
-
-    /* =================================================
-       LOGOUT
-       ================================================= */
 
     document
         .querySelectorAll(
